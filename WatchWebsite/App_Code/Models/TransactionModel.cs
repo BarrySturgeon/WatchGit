@@ -31,18 +31,11 @@ public class TransactionModel
         }
     }
 
-    public String UpdateBattery(int id, Battery battery)
+    public String UpdateTransaciton(int id, Transaction transaction)
     {
         try
         {
-            WatchDBEntities wdb = new WatchDBEntities();
-
-            Battery b = wdb.Batteries.Find(id);
-
-            b.Battery1 = battery.Battery1;
-            b.Branch = battery.Branch;
-
-            wdb.SaveChanges();
+            //
 
             return "Update Successful";
         }
