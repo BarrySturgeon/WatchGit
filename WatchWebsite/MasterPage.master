@@ -23,10 +23,20 @@
             </div>
             <div id="navigation">
                 <ul = id="nav"> 
-                    <li><asp:HyperLink ID="HyperLink1" runat="server">Webshop</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Pages/Index.aspx">Webshop</asp:HyperLink></li>
                     <li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Pages/about.aspx">About us</asp:HyperLink></li>
                     <li><asp:HyperLink ID="HyperLink3" runat="server">Reports</asp:HyperLink></li>
                     <li><asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Pages/Management/Management.aspx">Management</asp:HyperLink></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li><asp:HyperLink ID="HyperLink5" runat="server">Cart</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/Pages/Account/Register.aspx">Register</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/Pages/Account/Login.aspx">Login</asp:HyperLink></li>
+                    
                 </ul>
 
             </div>

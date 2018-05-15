@@ -18,8 +18,7 @@ public partial class Pages_Management_ManageProducts : System.Web.UI.Page
             if (!String.IsNullOrWhiteSpace(Request.QueryString["id"])) {
                 int id = Convert.ToInt32(Request.QueryString["id"]);
                 FillPage(id);
-
-
+      
             }
         }
 
