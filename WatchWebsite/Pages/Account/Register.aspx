@@ -4,6 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <p>
+        <asp:Literal ID="litStatus" runat="server"></asp:Literal>
+    </p>
+    <p>
         <asp:Label ID="Label1" runat="server" Text="Username: " Width="20%"></asp:Label>
         <asp:TextBox ID="txtUsrName" runat="server" CssClass="inputs" Width="20%"></asp:TextBox>
     </p>
