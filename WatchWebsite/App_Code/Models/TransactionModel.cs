@@ -35,7 +35,16 @@ public class TransactionModel
     {
         try
         {
-            //
+            WatchDBEntities wdb = new WatchDBEntities();
+            Transaction t = wdb.Transactions.Find(id);
+            t.Date = transaction.Date;
+            t.Description = transaction.Description;
+            t.Comment = transaction.Comment;
+            t.Subtotal = transaction.Subtotal;
+            t.VAT = transaction.VAT;
+            t.Total = transaction.Total;
+
+            wdb.SaveChanges();
 
             return "Update Successful";
         }

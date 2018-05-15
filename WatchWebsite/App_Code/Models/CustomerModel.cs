@@ -35,7 +35,15 @@ public class CustomerModel
     {
         try
         {
-            ///
+            WatchDBEntities wdb = new WatchDBEntities();
+            Customer c = wdb.Customers.Find(id);
+            c.First_Name = customer.First_Name; // to store Name I will use First Name (First Name + Last Name = Name, normalized attribute).
+            c.Last_Name = customer.Last_Name;  // to store password I will use Last Name (since we don't have pwd field)
+            c.Address = customer.Address;
+            c.Phone_Number = customer.Phone_Number;
+            c.Next_Repair_Date = customer.Next_Repair_Date;
+
+            wdb.SaveChanges();
 
             return "Update Successful";
         }
