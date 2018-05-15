@@ -75,4 +75,65 @@ public class ProductsModel
     }
 
 
+    public Product GetProduct(int id) {
+
+        try {
+            using (WatchDBv2Entities db = new WatchDBv2Entities()) {
+                Product product = db.Products.Find(id);
+                return product;
+            }
+
+        }
+        catch (Exception) {
+
+            return null;
+
+        }
+
+
+    }
+
+
+    public List<Product> GetAllProducts() {
+        try
+        {
+            using (WatchDBv2Entities db = new WatchDBv2Entities())
+            {
+                List<Product> products = (from x in db.Products select x).ToList();
+                return products;
+
+            }
+        }
+        catch (Exception) {
+            return null;
+
+        }
+
+
+    }
+
+
+
+    public List<Product> GetProductsByType(int typeId) {
+
+        try
+        {
+            using (WatchDBv2Entities db = new WatchDBv2Entities())
+            {
+                List<Product> products = (from x in db.Products where x.TypeId == typeId select x).ToList();
+                return products;
+
+            }
+        }
+        catch (Exception)
+        {
+            return null;
+
+        }
+
+
+
+    }
+
+
 }
