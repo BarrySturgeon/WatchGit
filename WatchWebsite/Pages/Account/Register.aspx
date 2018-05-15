@@ -19,7 +19,7 @@
         <asp:TextBox ID="txtConfirmPassword" runat="server" CssClass="inputs" TextMode="Password" Width="20%"></asp:TextBox>
     </p>
     <p>
-        <asp:Button ID="Button1" runat="server" CssClass="button" Text="Button" OnClick="Button1_Click" />
+        <asp:Button ID="Button1" runat="server" CssClass="button" Text="Register" OnClick="Button1_Click" />
     </p>
 </asp:Content>
 

@@ -11,4 +11,9 @@ public partial class Pages_Account_Login : System.Web.UI.Page
     {
 
     }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+
+    }
 }
