@@ -21,8 +21,9 @@ public partial class Pages_Account_Register : System.Web.UI.Page
 
         UserStore<IdentityUser> userStore = new UserStore<IdentityUser>();
 
-        userStore.Context.Database.Connection.ConnectionString = 
-            System.Configuration.ConfigurationManager.ConnectionStrings["WatchDBEntitiesConnectionString"].ConnectionString;
+        userStore.Context.Database.Connection.ConnectionString =
+            System.Configuration.ConfigurationManager.ConnectionStrings["WatchDBv2Entities"].ConnectionString;
+
 
         UserManager<IdentityUser> manager = new UserManager<IdentityUser>(userStore);
 
@@ -46,7 +47,7 @@ public partial class Pages_Account_Register : System.Web.UI.Page
 
                     // Redirect to home page
                     authenticationManager.SignIn(new AuthenticationProperties(), userIdentity);
-                    Response.Redirect("~/about.aspx"); // no index page, will have to redirect to "about"
+                    Response.Redirect("~//Index.aspx"); 
                 }
                 else
                 {
