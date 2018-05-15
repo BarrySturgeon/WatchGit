@@ -8,13 +8,7 @@ using System.Web;
 /// </summary>
 public class ItemModel
 {
-    public ItemModel()
-    {
-        //
-        // TODO: Add constructor logic here
-        //
-    }
-
+  
     public String InsertItem(Item item)
     {
         try
