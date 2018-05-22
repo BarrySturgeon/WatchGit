@@ -20,7 +20,7 @@ public partial class Pages_Account_Login : System.Web.UI.Page
         UserStore<IdentityUser> userStore = new UserStore<IdentityUser>();
 
         userStore.Context.Database.Connection.ConnectionString =
-            System.Configuration.ConfigurationManager.ConnectionStrings["WatchDBv2EntitiesConnectionString"].ConnectionString;
+            System.Configuration.ConfigurationManager.ConnectionStrings["WatchDBv2ConnectionString"].ConnectionString;
 
 
         UserManager<IdentityUser> manager = new UserManager<IdentityUser>(userStore);

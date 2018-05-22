@@ -15,8 +15,23 @@
         <asp:TextBox ID="txtPassword" runat="server" CssClass="inputs" TextMode="Password" Width="20%"></asp:TextBox>
     </p>
     <p>
-        <asp:Label ID="Label3" runat="server" Text="Confirm Password:" Width="20%"></asp:Label>
+        <asp:Label ID="Label3" runat="server" Text="Confirm Password:" Width="14%"></asp:Label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="txtConfirmPassword" runat="server" CssClass="inputs" TextMode="Password" Width="20%"></asp:TextBox>
+    </p>
+    <p>
+        <asp:Label ID="Label4" runat="server" Text="First Name:"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="txtFirstName" runat="server" CssClass="inputs"></asp:TextBox>
+    </p>
+    <p>
+        <asp:Label ID="txtLastName" runat="server" Text="Last Name:" Width="20%"></asp:Label>
+        <asp:TextBox ID="textLastName" runat="server"></asp:TextBox>
+    </p>
+    <p>
+        <asp:Label ID="Label5" runat="server" Text="Address"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="txtAddress" runat="server" Height="63px" TextMode="MultiLine" Width="198px"></asp:TextBox>
     </p>
     <p>
         <asp:Button ID="Button1" runat="server" CssClass="button" Text="Register" OnClick="Button1_Click" />

@@ -39,6 +39,18 @@ public partial class Pages_Account_Register : System.Web.UI.Page
                 IdentityResult result = manager.Create(user, txtPassword.Text);
                 if(result.Succeeded)
                 {
+
+                    UserInformation info = new UserInformation {
+
+                        Address = txtAddress.Text,
+                        FirstName = txtFirstName.Text,
+                        LastName = txtLastName.Text,
+                        GUID = user.Id
+                    };
+
+                    UserInfoModel model = new UserInfoModel();
+                    model.InsertUserInformation(info);
+
                     // Store in DB
                     var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
 
