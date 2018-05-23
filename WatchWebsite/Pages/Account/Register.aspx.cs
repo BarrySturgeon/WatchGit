@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
@@ -22,7 +22,7 @@ public partial class Pages_Account_Register : System.Web.UI.Page
         UserStore<IdentityUser> userStore = new UserStore<IdentityUser>();
 
         userStore.Context.Database.Connection.ConnectionString =
-            System.Configuration.ConfigurationManager.ConnectionStrings["WatchDBv2Entities"].ConnectionString;
+            System.Configuration.ConfigurationManager.ConnectionStrings["WatchDBv2ConnectionString"].ConnectionString;
 
 
         UserManager<IdentityUser> manager = new UserManager<IdentityUser>(userStore);
@@ -39,6 +39,18 @@ public partial class Pages_Account_Register : System.Web.UI.Page
                 IdentityResult result = manager.Create(user, txtPassword.Text);
                 if(result.Succeeded)
                 {
+
+                    UserInformation info = new UserInformation {
+
+                        Address = txtAddress.Text,
+                        FirstName = txtFirstName.Text,
+                        LastName = txtLastName.Text,
+                        GUID = user.Id
+                    };
+
+                    UserInfoModel model = new UserInfoModel();
+                    model.InsertUserInformation(info);
+
                     // Store in DB
                     var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
 
@@ -47,7 +59,7 @@ public partial class Pages_Account_Register : System.Web.UI.Page
 
                     // Redirect to home page
                     authenticationManager.SignIn(new AuthenticationProperties(), userIdentity);
-                    Response.Redirect("~//Index.aspx"); 
+                    Response.Redirect("~/Index.aspx"); 
                 }
                 else
                 {

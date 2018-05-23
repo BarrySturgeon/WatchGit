@@ -27,16 +27,21 @@
                     <li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Pages/about.aspx">About us</asp:HyperLink></li>
                     <li><asp:HyperLink ID="HyperLink3" runat="server">Reports</asp:HyperLink></li>
                     <li><asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Pages/Management/Management.aspx">Management</asp:HyperLink></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li><asp:HyperLink ID="HyperLink5" runat="server">Cart</asp:HyperLink></li>
-                    <li><asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/Pages/Account/Register.aspx">Register</asp:HyperLink></li>
-                    <li><asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/Pages/Account/Login.aspx">Login</asp:HyperLink></li>
                     
+                    
+                    
+
+                    <li style="float:right">
+                         <asp:HyperLink ID="lnkRegister" NavigateUrl="~/Pages/Account/Register.aspx" runat="server">Register</asp:HyperLink>
+                         <asp:HyperLink ID="litStatus" runat="server"></asp:HyperLink>
+                    </li>
+
+                    <li style="float:right">
+                        <asp:HyperLink ID="lnkLogin" NavigateUrl="~/Pages/Account/Login.aspx" runat="server">Login</asp:HyperLink>
+                        <asp:LinkButton ID="lnkLogout" runat="server" OnClick="lnkLogout_Click">Log out</asp:LinkButton>
+                        
+                    </li>
+
                 </ul>
 
             </div>

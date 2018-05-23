@@ -10,6 +10,7 @@
         <EntityTypeShape EntityType="WatchDBv2Model.ProductType" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <AssociationConnector Association="WatchDBv2Model.FK_Cart_Product" ManuallyRouted="false" />
         <AssociationConnector Association="WatchDBv2Model.FK_Product_ProductTypes" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="WatchDBv2Model.UserInformation" Width="1.5" PointX="8.5" PointY="2.125" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
