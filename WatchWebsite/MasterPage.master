@@ -23,22 +23,22 @@
             </div>
             <div id="navigation">
                 <ul = id="nav"> 
-                    <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Pages/Index.aspx">Webshop</asp:HyperLink></li>
-                    <li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Pages/about.aspx">About us</asp:HyperLink></li>
-                    <li><asp:HyperLink ID="HyperLink3" runat="server">Reports</asp:HyperLink></li>
-                    <li><asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Pages/Management/Management.aspx">Management</asp:HyperLink></li>
+                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Index.aspx">Webshop</asp:HyperLink></li>
+                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/about.aspx">About us</asp:HyperLink></li>
+                    <li><asp:HyperLink runat="server">Reports</asp:HyperLink></li>
+                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Management/Management.aspx">Management</asp:HyperLink></li>
                     
                     
                     
 
                     <li style="float:right">
                          <asp:HyperLink ID="lnkRegister" NavigateUrl="~/Pages/Account/Register.aspx" runat="server">Register</asp:HyperLink>
-                         <asp:HyperLink ID="litStatus" runat="server"></asp:HyperLink>
+                         <asp:HyperLink ID="litStatus" runat="server" NavigateUrl="~/Pages/ShoppingCart.aspx"/>
                     </li>
 
                     <li style="float:right">
-                        <asp:HyperLink ID="lnkLogin" NavigateUrl="~/Pages/Account/Login.aspx" runat="server">Login</asp:HyperLink>
-                        <asp:LinkButton ID="lnkLogout" runat="server" OnClick="lnkLogout_Click">Log out</asp:LinkButton>
+                        <asp:HyperLink ID="lnkLogin" NavigateUrl="~/Pages/Account/Login.aspx" runat="server">Log in</asp:HyperLink>
+                        <asp:LinkButton ID="btnLogout" runat="server" Text="Log out" OnClick="lnkLogout_Click"/>
                         
                     </li>
 

@@ -78,4 +78,60 @@ public class CartModel
         }
 
     }
+
+    public List<Cart> GetOrdersInCart(string userId)
+    {
+        WatchDBv2Entities db = new WatchDBv2Entities();
+        List<Cart> orders = (from x in db.Carts where x.ClientID == userId && x.IsInCart orderby x.DatePurchased select x).ToList();
+        return orders;
+    }
+
+    public int GetAmountOfOrders(string userId)
+    {
+        try
+        {
+            WatchDBv2Entities db = new WatchDBv2Entities();
+            int amount = (from x in db.Carts
+                          where x.ClientID == userId && x.IsInCart
+                          select x.Amount).Sum();
+            return amount;
+
+        }
+        catch {
+
+            return 0;
+        }
+
+    }
+
+    public void UpdateQuantity(int id, int quantity)
+    {
+        WatchDBv2Entities db = new WatchDBv2Entities();
+        Cart cart = db.Carts.Find(id);
+        cart.Amount = quantity;
+        db.SaveChanges();
+
+    }
+
+    public void MarkOrdersAsPaid(List<Cart> carts)
+    {
+        WatchDBv2Entities db = new WatchDBv2Entities();
+        if (carts != null) {
+            foreach (Cart cart in carts) {
+
+                Cart oldCart = db.Carts.Find(cart.ID);
+                oldCart.DatePurchased = DateTime.Now;
+                oldCart.IsInCart = false;
+
+            }
+
+            db.SaveChanges();
+
+        }
+
+    }
+
+
+
+
 }

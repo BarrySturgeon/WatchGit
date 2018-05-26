@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Microsoft.Owin.Security;
+using Microsoft.AspNet.Identity;
 
 public partial class MasterPage : System.Web.UI.MasterPage
 {
@@ -20,8 +22,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
             lnkLogin.Visible = false;
             lnkRegister.Visible = false;
 
-            lnkLogout.Visible = true;
             litStatus.Visible = true;
+            btnLogout.Visible = true;
+
+            CartModel model = new CartModel();
+            string userId = HttpContext.Current.User.Identity.GetUserId();
+            litStatus.Text = string.Format("{0} ({1})", Context.User.Identity.Name, model.GetAmountOfOrders(userId));
 
         }
         else {
@@ -29,8 +35,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
             lnkLogin.Visible = true;
             lnkRegister.Visible = true;
 
-            lnkLogout.Visible = false;
             litStatus.Visible = false;
+            btnLogout.Visible = false;
         }
     
 
