@@ -1,0 +1,531 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TimeMastersDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Battery">
+          <Key>
+            <PropertyRef Name="Battery_ID" />
+          </Key>
+          <Property Name="Battery_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Branch_ID" Type="uniqueidentifier" />
+          <Property Name="Battery" Type="text" />
+        </EntityType>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="Branch_ID" />
+          </Key>
+          <Property Name="Branch_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Branch_Location" Type="text" />
+        </EntityType>
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="Purchase_ID" />
+          </Key>
+          <Property Name="Purchase_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Transaction_ID" Type="uniqueidentifier" />
+          <Property Name="Product_ID" Type="uniqueidentifier" />
+          <Property Name="Client_ID" Type="uniqueidentifier" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="Date_Purchased" Type="date" />
+          <Property Name="Is_In_Cart" Type="char" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Extra">
+          <Key>
+            <PropertyRef Name="Extra_ID" />
+          </Key>
+          <Property Name="Extra_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Branch_ID" Type="uniqueidentifier" />
+          <Property Name="Extra" Type="text" />
+        </EntityType>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="Order_ID" />
+          </Key>
+          <Property Name="Order_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Watch_ID" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Pin">
+          <Key>
+            <PropertyRef Name="Pin_ID" />
+          </Key>
+          <Property Name="Pin_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Branch_ID" Type="uniqueidentifier" />
+          <Property Name="Extra" Type="text" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Product_ID" />
+          </Key>
+          <Property Name="Product_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProductType_ID" Type="uniqueidentifier" />
+          <Property Name="Purchase_ID" Type="uniqueidentifier" />
+          <Property Name="Watch_ID" Type="uniqueidentifier" />
+          <Property Name="Strap_ID" Type="uniqueidentifier" />
+          <Property Name="Name" Type="text" />
+          <Property Name="Price" Type="money" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Image" Type="image" />
+        </EntityType>
+        <EntityType Name="ProductType">
+          <Key>
+            <PropertyRef Name="ProductType_ID" />
+          </Key>
+          <Property Name="ProductType_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Product_ID" Type="uniqueidentifier" />
+          <Property Name="Name" Type="text" />
+        </EntityType>
+        <EntityType Name="Repair">
+          <Key>
+            <PropertyRef Name="Repair_ID" />
+          </Key>
+          <Property Name="Repair_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RepairStatus_ID" Type="uniqueidentifier" />
+          <Property Name="Repair_DateStart" Type="date" />
+          <Property Name="Repair_DateEnd" Type="date" />
+          <Property Name="Repair_Subtotal" Type="money" />
+          <Property Name="Repair_VAT" Type="money" />
+          <Property Name="Repair_Total" Type="money" />
+          <Property Name="Repair_DeliveryFlag" Type="char" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'TimeMastersDB.dbo.RepairStatus' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="RepairStatus">
+          <Property Name="RepairStatus_ID" Type="uniqueidentifier" />
+          <Property Name="RepairStatus" Type="char" MaxLength="10" />
+        </EntityType>-->
+        <EntityType Name="Strap">
+          <Key>
+            <PropertyRef Name="Strap_ID" />
+          </Key>
+          <Property Name="Strap_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Branch_ID" Type="uniqueidentifier" />
+          <Property Name="Strap" Type="text" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="Transaction_ID" />
+          </Key>
+          <Property Name="Transaction_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Purchase_ID" Type="uniqueidentifier" />
+          <Property Name="Transaction_Date" Type="date" />
+          <Property Name="Transaction_Description" Type="text" />
+          <Property Name="Transaction_Comment" Type="text" />
+          <Property Name="Transaction_Subtotal" Type="money" />
+          <Property Name="Transaction_VAT" Type="money" />
+          <Property Name="Transaction_Total" Type="money" />
+        </EntityType>
+        <EntityType Name="Watch">
+          <Key>
+            <PropertyRef Name="Watch_ID" />
+          </Key>
+          <Property Name="Watch_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Branch_ID" Type="uniqueidentifier" />
+          <Property Name="Watch_Price" Type="money" />
+          <Property Name="Watch_Make" Type="text" />
+          <Property Name="Watch_Series" Type="text" />
+          <Property Name="Watch_ModelYear" Type="date" />
+          <Property Name="Watch_Style" Type="text" />
+          <Property Name="Watch_Movement" Type="text" />
+          <Property Name="Watch_CaseMaterial" Type="text" />
+          <Property Name="Watch_DialType" Type="text" />
+          <Property Name="Watch_WaterResistance" Type="char" MaxLength="10" />
+          <Property Name="Watch_BraceletMaterial" Type="text" />
+          <Property Name="Watch_Functions" Type="text" />
+          <Property Name="Watch_Image" Type="image" />
+        </EntityType>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="TimeMastersDBModelStoreContainer">
+          <EntitySet Name="Battery" EntityType="Self.Battery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Branch" EntityType="Self.Branch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Extra" EntityType="Self.Extra" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderItem" EntityType="Self.OrderItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pin" EntityType="Self.Pin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductType" EntityType="Self.ProductType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Repair" EntityType="Self.Repair" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Strap" EntityType="Self.Strap" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Watch" EntityType="Self.Watch" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TimeMastersDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Battery">
+          <Key>
+            <PropertyRef Name="Battery_ID" />
+          </Key>
+          <Property Name="Battery_ID" Type="Guid" Nullable="false" />
+          <Property Name="Branch_ID" Type="Guid" />
+          <Property Name="Battery1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="Branch_ID" />
+          </Key>
+          <Property Name="Branch_ID" Type="Guid" Nullable="false" />
+          <Property Name="Branch_Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="Purchase_ID" />
+          </Key>
+          <Property Name="Purchase_ID" Type="Guid" Nullable="false" />
+          <Property Name="Transaction_ID" Type="Guid" />
+          <Property Name="Product_ID" Type="Guid" />
+          <Property Name="Client_ID" Type="Guid" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Date_Purchased" Type="DateTime" Precision="0" />
+          <Property Name="Is_In_Cart" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Extra">
+          <Key>
+            <PropertyRef Name="Extra_ID" />
+          </Key>
+          <Property Name="Extra_ID" Type="Guid" Nullable="false" />
+          <Property Name="Branch_ID" Type="Guid" />
+          <Property Name="Extra1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="Order_ID" />
+          </Key>
+          <Property Name="Order_ID" Type="Guid" Nullable="false" />
+          <Property Name="Watch_ID" Type="Guid" />
+        </EntityType>
+        <EntityType Name="Pin">
+          <Key>
+            <PropertyRef Name="Pin_ID" />
+          </Key>
+          <Property Name="Pin_ID" Type="Guid" Nullable="false" />
+          <Property Name="Branch_ID" Type="Guid" />
+          <Property Name="Extra" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Product_ID" />
+          </Key>
+          <Property Name="Product_ID" Type="Guid" Nullable="false" />
+          <Property Name="ProductType_ID" Type="Guid" />
+          <Property Name="Purchase_ID" Type="Guid" />
+          <Property Name="Watch_ID" Type="Guid" />
+          <Property Name="Strap_ID" Type="Guid" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ProductType">
+          <Key>
+            <PropertyRef Name="ProductType_ID" />
+          </Key>
+          <Property Name="ProductType_ID" Type="Guid" Nullable="false" />
+          <Property Name="Product_ID" Type="Guid" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Repair">
+          <Key>
+            <PropertyRef Name="Repair_ID" />
+          </Key>
+          <Property Name="Repair_ID" Type="Guid" Nullable="false" />
+          <Property Name="RepairStatus_ID" Type="Guid" />
+          <Property Name="Repair_DateStart" Type="DateTime" Precision="0" />
+          <Property Name="Repair_DateEnd" Type="DateTime" Precision="0" />
+          <Property Name="Repair_Subtotal" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Repair_VAT" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Repair_Total" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Repair_DeliveryFlag" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Strap">
+          <Key>
+            <PropertyRef Name="Strap_ID" />
+          </Key>
+          <Property Name="Strap_ID" Type="Guid" Nullable="false" />
+          <Property Name="Branch_ID" Type="Guid" />
+          <Property Name="Strap1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="Transaction_ID" />
+          </Key>
+          <Property Name="Transaction_ID" Type="Guid" Nullable="false" />
+          <Property Name="Purchase_ID" Type="Guid" />
+          <Property Name="Transaction_Date" Type="DateTime" Precision="0" />
+          <Property Name="Transaction_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Transaction_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Transaction_Subtotal" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Transaction_VAT" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Transaction_Total" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="Watch">
+          <Key>
+            <PropertyRef Name="Watch_ID" />
+          </Key>
+          <Property Name="Watch_ID" Type="Guid" Nullable="false" />
+          <Property Name="Branch_ID" Type="Guid" />
+          <Property Name="Watch_Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Watch_Make" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Watch_Series" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Watch_ModelYear" Type="DateTime" Precision="0" />
+          <Property Name="Watch_Style" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Watch_Movement" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Watch_CaseMaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Watch_DialType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Watch_WaterResistance" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Watch_BraceletMaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Watch_Functions" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Watch_Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="TimeMastersDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Batteries" EntityType="Self.Battery" />
+          <EntitySet Name="Branches" EntityType="Self.Branch" />
+          <EntitySet Name="Carts" EntityType="Self.Cart" />
+          <EntitySet Name="Extras" EntityType="Self.Extra" />
+          <EntitySet Name="OrderItems" EntityType="Self.OrderItem" />
+          <EntitySet Name="Pins" EntityType="Self.Pin" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="ProductTypes" EntityType="Self.ProductType" />
+          <EntitySet Name="Repairs" EntityType="Self.Repair" />
+          <EntitySet Name="Straps" EntityType="Self.Strap" />
+          <EntitySet Name="Transactions" EntityType="Self.Transaction" />
+          <EntitySet Name="Watches" EntityType="Self.Watch" />
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TimeMastersDBModelStoreContainer" CdmEntityContainer="TimeMastersDBEntities">
+          <EntitySetMapping Name="Batteries">
+            <EntityTypeMapping TypeName="TimeMastersDBModel.Battery">
+              <MappingFragment StoreEntitySet="Battery">
+                <ScalarProperty Name="Battery_ID" ColumnName="Battery_ID" />
+                <ScalarProperty Name="Branch_ID" ColumnName="Branch_ID" />
+                <ScalarProperty Name="Battery1" ColumnName="Battery" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Branches">
+            <EntityTypeMapping TypeName="TimeMastersDBModel.Branch">
+              <MappingFragment StoreEntitySet="Branch">
+                <ScalarProperty Name="Branch_ID" ColumnName="Branch_ID" />
+                <ScalarProperty Name="Branch_Location" ColumnName="Branch_Location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Carts">
+            <EntityTypeMapping TypeName="TimeMastersDBModel.Cart">
+              <MappingFragment StoreEntitySet="Cart">
+                <ScalarProperty Name="Purchase_ID" ColumnName="Purchase_ID" />
+                <ScalarProperty Name="Transaction_ID" ColumnName="Transaction_ID" />
+                <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+                <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Date_Purchased" ColumnName="Date_Purchased" />
+                <ScalarProperty Name="Is_In_Cart" ColumnName="Is_In_Cart" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Extras">
+            <EntityTypeMapping TypeName="TimeMastersDBModel.Extra">
+              <MappingFragment StoreEntitySet="Extra">
+                <ScalarProperty Name="Extra_ID" ColumnName="Extra_ID" />
+                <ScalarProperty Name="Branch_ID" ColumnName="Branch_ID" />
+                <ScalarProperty Name="Extra1" ColumnName="Extra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderItems">
+            <EntityTypeMapping TypeName="TimeMastersDBModel.OrderItem">
+              <MappingFragment StoreEntitySet="OrderItem">
+                <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
+                <ScalarProperty Name="Watch_ID" ColumnName="Watch_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pins">
+            <EntityTypeMapping TypeName="TimeMastersDBModel.Pin">
+              <MappingFragment StoreEntitySet="Pin">
+                <ScalarProperty Name="Pin_ID" ColumnName="Pin_ID" />
+                <ScalarProperty Name="Branch_ID" ColumnName="Branch_ID" />
+                <ScalarProperty Name="Extra" ColumnName="Extra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="TimeMastersDBModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+                <ScalarProperty Name="ProductType_ID" ColumnName="ProductType_ID" />
+                <ScalarProperty Name="Purchase_ID" ColumnName="Purchase_ID" />
+                <ScalarProperty Name="Watch_ID" ColumnName="Watch_ID" />
+                <ScalarProperty Name="Strap_ID" ColumnName="Strap_ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductTypes">
+            <EntityTypeMapping TypeName="TimeMastersDBModel.ProductType">
+              <MappingFragment StoreEntitySet="ProductType">
+                <ScalarProperty Name="ProductType_ID" ColumnName="ProductType_ID" />
+                <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Repairs">
+            <EntityTypeMapping TypeName="TimeMastersDBModel.Repair">
+              <MappingFragment StoreEntitySet="Repair">
+                <ScalarProperty Name="Repair_ID" ColumnName="Repair_ID" />
+                <ScalarProperty Name="RepairStatus_ID" ColumnName="RepairStatus_ID" />
+                <ScalarProperty Name="Repair_DateStart" ColumnName="Repair_DateStart" />
+                <ScalarProperty Name="Repair_DateEnd" ColumnName="Repair_DateEnd" />
+                <ScalarProperty Name="Repair_Subtotal" ColumnName="Repair_Subtotal" />
+                <ScalarProperty Name="Repair_VAT" ColumnName="Repair_VAT" />
+                <ScalarProperty Name="Repair_Total" ColumnName="Repair_Total" />
+                <ScalarProperty Name="Repair_DeliveryFlag" ColumnName="Repair_DeliveryFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Straps">
+            <EntityTypeMapping TypeName="TimeMastersDBModel.Strap">
+              <MappingFragment StoreEntitySet="Strap">
+                <ScalarProperty Name="Strap_ID" ColumnName="Strap_ID" />
+                <ScalarProperty Name="Branch_ID" ColumnName="Branch_ID" />
+                <ScalarProperty Name="Strap1" ColumnName="Strap" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="TimeMastersDBModel.Transaction">
+              <MappingFragment StoreEntitySet="Transaction">
+                <ScalarProperty Name="Transaction_ID" ColumnName="Transaction_ID" />
+                <ScalarProperty Name="Purchase_ID" ColumnName="Purchase_ID" />
+                <ScalarProperty Name="Transaction_Date" ColumnName="Transaction_Date" />
+                <ScalarProperty Name="Transaction_Description" ColumnName="Transaction_Description" />
+                <ScalarProperty Name="Transaction_Comment" ColumnName="Transaction_Comment" />
+                <ScalarProperty Name="Transaction_Subtotal" ColumnName="Transaction_Subtotal" />
+                <ScalarProperty Name="Transaction_VAT" ColumnName="Transaction_VAT" />
+                <ScalarProperty Name="Transaction_Total" ColumnName="Transaction_Total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Watches">
+            <EntityTypeMapping TypeName="TimeMastersDBModel.Watch">
+              <MappingFragment StoreEntitySet="Watch">
+                <ScalarProperty Name="Watch_ID" ColumnName="Watch_ID" />
+                <ScalarProperty Name="Branch_ID" ColumnName="Branch_ID" />
+                <ScalarProperty Name="Watch_Price" ColumnName="Watch_Price" />
+                <ScalarProperty Name="Watch_Make" ColumnName="Watch_Make" />
+                <ScalarProperty Name="Watch_Series" ColumnName="Watch_Series" />
+                <ScalarProperty Name="Watch_ModelYear" ColumnName="Watch_ModelYear" />
+                <ScalarProperty Name="Watch_Style" ColumnName="Watch_Style" />
+                <ScalarProperty Name="Watch_Movement" ColumnName="Watch_Movement" />
+                <ScalarProperty Name="Watch_CaseMaterial" ColumnName="Watch_CaseMaterial" />
+                <ScalarProperty Name="Watch_DialType" ColumnName="Watch_DialType" />
+                <ScalarProperty Name="Watch_WaterResistance" ColumnName="Watch_WaterResistance" />
+                <ScalarProperty Name="Watch_BraceletMaterial" ColumnName="Watch_BraceletMaterial" />
+                <ScalarProperty Name="Watch_Functions" ColumnName="Watch_Functions" />
+                <ScalarProperty Name="Watch_Image" ColumnName="Watch_Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="TimeMastersDBModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="TimeMastersDBModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="TimeMastersDBModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="TimeMastersDBModel.Store.sp_helpdiagramdefinition" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="TimeMastersDBModel.Store.sp_helpdiagrams" />
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="TimeMastersDBModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="TimeMastersDBModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
