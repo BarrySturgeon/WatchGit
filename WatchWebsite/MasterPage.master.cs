@@ -14,8 +14,28 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         var user = Context.User.Identity;
 
+
+        //// specific code only for admin
+        //if (Session["someSessionVal"].ToString() == "some value") // checking for admin, adminRyan
+        //{
+        //    manage.Visible = true;
+        //}
+        //else
+        //{
+        //    manage.Visible = false;
+        //}
+
+        int test = 0; // just for commit
+        
+
+        // for all users
         if (user.IsAuthenticated)
         {
+
+            //if(user != admin)
+            //{
+            //    maganage.visible = false;
+            //}
 
             litStatus.Text = Context.User.Identity.Name;
 
@@ -48,7 +68,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
         authenticationManager.SignOut();
 
-        Response.Redirect("~/Index.aspx");
+        Response.Redirect("~/Pages/Index.aspx");
 
     }
 }

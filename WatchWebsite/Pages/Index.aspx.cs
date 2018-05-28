@@ -14,40 +14,49 @@ public partial class Pages_Index : System.Web.UI.Page
 
     private void FillPage()
     {
-        ProductsModel productModel = new ProductsModel();
-        List<Product> products = productModel.GetAllProducts();
-        
-        if(products != null)
+        try
         {
-            foreach (Product product in products)
+            ProductsModel productModel = new ProductsModel();
+            List<Product> products = productModel.GetAllProducts();
+
+            if (products != null)
             {
-                Panel productPanel = new Panel();
-                ImageButton imageButton = new ImageButton();
-                Label lblName = new Label();
-                Label lblPrice = new Label();
+                foreach (Product product in products)
+                {
+                    Panel productPanel = new Panel();
+                    ImageButton imageButton = new ImageButton();
+                    Label lblName = new Label();
+                    Label lblPrice = new Label();
 
-                imageButton.ImageUrl = "~/Images/Products/" + product.Image;
-                imageButton.CssClass = "productImage";
-                imageButton.PostBackUrl = "~/Pages/Product.aspx?id=" + product.Id;
+                    imageButton.ImageUrl = "~/Images/Products/" + product.Image;
+                    imageButton.CssClass = "productImage";
+                    imageButton.PostBackUrl = "~/Pages/Product.aspx?id=" + product.Id;
 
-                lblName.Text = product.Name;
-                lblName.CssClass = "productName";
+                    lblName.Text = product.Name;
+                    lblName.CssClass = "productName";
 
-                lblPrice.Text = "R " + product.Price;
-                lblPrice.CssClass = "productPrice";
+                    lblPrice.Text = "R " + product.Price;
+                    lblPrice.CssClass = "productPrice";
 
-                productPanel.Controls.Add(imageButton);
-                productPanel.Controls.Add(new Literal { Text = "<br />" });
-                productPanel.Controls.Add(lblName);
-                productPanel.Controls.Add(new Literal { Text = "<br />" });
-                productPanel.Controls.Add(lblPrice);
+                    productPanel.Controls.Add(imageButton);
+                    productPanel.Controls.Add(new Literal { Text = "<br />" });
+                    productPanel.Controls.Add(lblName);
+                    productPanel.Controls.Add(new Literal { Text = "<br />" });
+                    productPanel.Controls.Add(lblPrice);
 
-                pnlProducts.Controls.Add(productPanel);
+                    pnlProducts.Controls.Add(productPanel);
+                }
+            }
+            else
+            {
+                pnlProducts.Controls.Add(new Literal { Text = "No products found!" });
             }
         }
-        else
+        catch(Exception e)
         {
-            pnlProducts.Controls.Add(new Literal { Text = "No products found!" });
+            String temp = e.ToString();
+            System.Console.WriteLine("Hello world " + temp);
+            Response.Redirect("~/Pages/Errors/InternalServerErrorPage.aspx");
         }
     }
 }

@@ -26,7 +26,10 @@
                     <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Index.aspx">Webshop</asp:HyperLink></li>
                     <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/about.aspx">About us</asp:HyperLink></li>
                     <li><asp:HyperLink runat="server">Reports</asp:HyperLink></li>
-                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Management/Management.aspx">Management</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="manage" runat="server" NavigateUrl="~/Pages/Management/Management.aspx" 
+                        
+                        
+                        >Management</asp:HyperLink></li>
                     
                     
                     

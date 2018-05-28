@@ -59,7 +59,7 @@ public partial class Pages_Account_Register : System.Web.UI.Page
 
                     // Redirect to home page
                     authenticationManager.SignIn(new AuthenticationProperties(), userIdentity);
-                    Response.Redirect("~/Index.aspx"); 
+                    Response.Redirect("~/Pages/Index.aspx"); 
                 }
                 else
                 {

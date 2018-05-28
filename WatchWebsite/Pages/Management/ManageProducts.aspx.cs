@@ -60,7 +60,8 @@ public partial class Pages_Management_ManageProducts : System.Web.UI.Page
 
     }
 
-    private void GetImages() {
+    private void GetImages()
+    {
 
         try
         {
@@ -68,7 +69,8 @@ public partial class Pages_Management_ManageProducts : System.Web.UI.Page
 
             ArrayList imageList = new ArrayList();
 
-            foreach (string image in images) {
+            foreach (string image in images)
+            {
                 string imageName = image.Substring(image.LastIndexOf(@"\", StringComparison.Ordinal) + 1);
                 imageList.Add(imageName);
             }
@@ -79,7 +81,8 @@ public partial class Pages_Management_ManageProducts : System.Web.UI.Page
             ddlImage.DataBind();
 
         }
-        catch (Exception e) {
+        catch (Exception e)
+        {
 
             lblResult.Text = e.ToString();
         }
