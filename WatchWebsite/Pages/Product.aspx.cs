@@ -15,62 +15,81 @@ public partial class Pages_Product : System.Web.UI.Page
 
     private void FillPage()
     {
-        if (!String.IsNullOrWhiteSpace(Request.QueryString["id"]))
+        try
         {
-            int id = Convert.ToInt32(Request.QueryString["id"]);
-            ProductsModel productsModel = new ProductsModel();
-            Product product = productsModel.GetProduct(id);
+            if (!String.IsNullOrWhiteSpace(Request.QueryString["id"]))
+            {
+                int id = Convert.ToInt32(Request.QueryString["id"]);
+                ProductsModel productsModel = new ProductsModel();
+                Product product = productsModel.GetProduct(id);
 
-            lblPrice.Text = "Price per unit: <br/>R " + product.Price;
-            lblTitle.Text = product.Name;
-            lblDescription.Text = product.Description;
-            lblItemNo.Text = id.ToString();
-            imgProduct.ImageUrl = "~/Images/Products/" + product.Image;
+                lblPrice.Text = "Price per unit: <br/>R " + product.Price;
+                lblTitle.Text = product.Name;
+                lblDescription.Text = product.Description;
+                lblItemNo.Text = id.ToString();
+                imgProduct.ImageUrl = "~/Images/Products/" + product.Image;
 
-            int[] amount = Enumerable.Range(1, 20).ToArray();
-            ddlAmount.DataSource = amount;
-            ddlAmount.AppendDataBoundItems = true;
-            ddlAmount.DataBind();
+                int[] amount = Enumerable.Range(1, 20).ToArray();
+                ddlAmount.DataSource = amount;
+                ddlAmount.AppendDataBoundItems = true;
+                ddlAmount.DataBind();
 
+            }
+            else
+            {
+                // error unhandled
+                // bad coding! 
+            }
         }
-        else
+        catch(Exception e)
         {
-            // error unhandled
-            // bad coding! 
+            String temp = e.ToString();
+            System.Console.WriteLine("Hello world " + temp);
+            Response.Redirect("~/Pages/Errors/InternalServerErrorPage.aspx");
         }
 
     }
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
-        if(!string.IsNullOrWhiteSpace(Request.QueryString["id"]))
+        try
         {
-            string clientID = Context.User.Identity.GetUserId();
-
-
-            if (clientID != null)
+            if (!string.IsNullOrWhiteSpace(Request.QueryString["id"]))
             {
+                string clientID = Context.User.Identity.GetUserId();
 
-                int id = Convert.ToInt32(Request.QueryString["id"]);
-                int amount = Convert.ToInt32(ddlAmount.SelectedValue);
 
-                Cart cart = new Cart
+                if (clientID != null)
                 {
-                    Amount = amount,
-                    ClientID = clientID,
-                    DatePurchased = DateTime.Now,
-                    IsInCart = true,
-                    ProductID = id
-                };
 
-                CartModel model = new CartModel();
-                lblResult.Text = model.InsertCart(cart);
+                    int id = Convert.ToInt32(Request.QueryString["id"]);
+                    int amount = Convert.ToInt32(ddlAmount.SelectedValue);
 
+                    Cart cart = new Cart
+                    {
+                        Amount = amount,
+                        ClientID = clientID,
+                        DatePurchased = DateTime.Now,
+                        IsInCart = true,
+                        ProductID = id
+                    };
+
+                    CartModel model = new CartModel();
+                    lblResult.Text = model.InsertCart(cart);
+
+                }
+                else
+                {
+                    lblResult.Text = "Please log in to order items";
+
+                }
             }
-            else {
-                lblResult.Text = "Please log in to order items";
-
-            }
+        }
+        catch(Exception ex)
+        {
+            String temp = ex.ToString();
+            System.Console.WriteLine("Hello world " + temp);
+            Response.Redirect("~/Pages/Errors/InternalServerErrorPage.aspx");
         }
     }
 }

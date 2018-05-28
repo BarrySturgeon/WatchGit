@@ -37,7 +37,7 @@ public partial class Pages_Account_Login : System.Web.UI.Page
                 IsPersistent = false
             }, userIdentity);
 
-            Response.Redirect("~/Index.aspx");
+            Response.Redirect("~/Pages/Index.aspx");
         }
         else
         {

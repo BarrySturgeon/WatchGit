@@ -14,8 +14,14 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         var user = Context.User.Identity;
 
+        // for all users
         if (user.IsAuthenticated)
         {
+
+            //if(user != admin)
+            //{
+            //    maganage.visible = false;
+            //}
 
             litStatus.Text = Context.User.Identity.Name;
 
@@ -29,6 +35,16 @@ public partial class MasterPage : System.Web.UI.MasterPage
             string userId = HttpContext.Current.User.Identity.GetUserId();
             litStatus.Text = string.Format("{0} ({1})", Context.User.Identity.Name, model.GetAmountOfOrders(userId));
 
+            // specific code only for admin
+            if (user.Name == "admin" || user.Name == "adminRyan") // checking for admin, adminRyan
+            {
+                manage.Visible = true;
+            }
+            else
+            {
+                manage.Visible = false;
+            }
+
         }
         else {
 
@@ -37,6 +53,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
             litStatus.Visible = false;
             btnLogout.Visible = false;
+            manage.Visible = false;
         }
     
 
@@ -48,7 +65,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
         authenticationManager.SignOut();
 
-        Response.Redirect("~/Index.aspx");
+        Response.Redirect("~/Pages/Index.aspx");
 
     }
 }
