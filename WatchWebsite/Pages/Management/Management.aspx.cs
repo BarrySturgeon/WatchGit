@@ -15,12 +15,16 @@ public partial class Pages_Management_Management : System.Web.UI.Page
         {
             if(!(user.Name == "admin" || user.Name == "adminRyan"))
             {
-                Response.Redirect("~/Pages/Errors/UnauthorizedErrorPage.aspx");
+                //Response.StatusCode = 401;
+                //Response.End();
+                throw new HttpException(403, "Forbidden");
             }
         }
         else
         {
-            Response.Redirect("~/Pages/Errors/UnauthorizedErrorPage.aspx");
+            //Response.StatusCode = 401;
+            //Response.End();
+            throw new HttpException(403, "Forbidden");
         }
     }
 

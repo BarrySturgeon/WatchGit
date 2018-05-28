@@ -12,7 +12,16 @@ public partial class Pages_Account_Login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if(Page.PreviousPage != null && Page.PreviousPage.Request.Url == new Uri("~/Pages/Management/Management.aspx", UriKind.Absolute) )
+        /* "~/Pages/Management/Management.aspx" */
+        {
+            throw new HttpException(403, "Forbidden");
 
+            //Response.StatusCode = 403;
+            //Response.End();
+
+            // code not functioning properly
+        }
     }
 
     protected void Button2_Click(object sender, EventArgs e)

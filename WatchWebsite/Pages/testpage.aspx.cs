@@ -34,6 +34,6 @@ public partial class Pages_testpage : System.Web.UI.Page
     // free style error. play around
     protected void Button4_Click(object sender, EventArgs e)
     {
-
+        throw new HttpException(/*code*/ 500, "Would you like to browse ma deck..?"/*message*/);
     }
 }
