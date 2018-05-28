@@ -9,7 +9,19 @@ public partial class Pages_Management_Management : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        var user = Context.User.Identity;
 
+        if(user.IsAuthenticated)
+        {
+            if(!(user.Name == "admin" || user.Name == "adminRyan"))
+            {
+                Response.Redirect("~/Pages/Errors/UnauthorizedErrorPage.aspx");
+            }
+        }
+        else
+        {
+            Response.Redirect("~/Pages/Errors/UnauthorizedErrorPage.aspx");
+        }
     }
 
     protected void grdProducts_RowEditing(Object sender, GridViewEditEventArgs e)

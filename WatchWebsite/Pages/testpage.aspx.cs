@@ -15,19 +15,19 @@ public partial class Pages_testpage : System.Web.UI.Page
     // 404 error
     protected void Button1_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("nonexistentpage.aspx");
     }
 
     // unauthorized 
     protected void Button2_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("~/Pages/Errors/UnauthorizedErrorPage.aspx");
     }
 
     // internal server error
     protected void Button3_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("~/Pages/Errors/InternalServerErrorPage.aspx");
     }
 
 
