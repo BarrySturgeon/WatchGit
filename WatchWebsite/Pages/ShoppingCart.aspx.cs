@@ -45,7 +45,7 @@ public partial class Pages_ShoppingCart : System.Web.UI.Page
 
             ImageButton btnImage = new ImageButton
             {
-                ImageUrl = string.Format("~/Pages/Products/{0}", product.Image),
+                ImageUrl = string.Format("~/Images/Products/{0}", product.Image),
                 PostBackUrl = string.Format("~/Pages/Product.aspx?id={0}", product.Id),
             };
 

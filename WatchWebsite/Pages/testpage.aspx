@@ -4,13 +4,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <p>
-    <asp:Button ID="Button1" runat="server" Text="make 404 error" />
+    <asp:Button ID="Button1" runat="server" Text="make 404 error" OnClick="Button1_Click" />
         </p><p>
-    <asp:Button ID="Button2" runat="server" Text="make unauthorized error" />
+    <asp:Button ID="Button2" runat="server" Text="make unauthorized error" OnClick="Button2_Click" />
             </p><p>
-    <asp:Button ID="Button3" runat="server" Text="make internal server error " />
+    <asp:Button ID="Button3" runat="server" Text="make internal server error " OnClick="Button3_Click" />
                 </p><p>
-                    <asp:Button ID="Button4" runat="server" Text="test certain functionality" />
+                    <asp:Button ID="Button4" runat="server" Text="test certain functionality" OnClick="Button4_Click" />
                     </p>
 </asp:Content>
 

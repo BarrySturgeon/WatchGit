@@ -15,7 +15,7 @@
         <tr>
             <td> <asp:Label ID="lblDescription" runat="server" CssClass="detailsDescription"></asp:Label></td>
             <td> <asp:Label ID="lblPrice" runat="server"  CssClass="detailsPrice"></asp:Label></td><br />
-            Quantity : <asp:DropDownList ID="ddlAmount" runat="server"></asp:DropDownList><br />
+            Quantity : <asp:DropDownList  ID="ddlAmount" runat="server"></asp:DropDownList ><br />
             <asp:Label ID="lblResult" runat="server" Text="" ></asp:Label>
         </tr>
         <tr>
