@@ -28,7 +28,7 @@ public partial class Pages_Account_Register : System.Web.UI.Page
         UserManager<IdentityUser> manager = new UserManager<IdentityUser>(userStore);
 
 
-        // Actually creating the user in the database
+        // Creating the user
         IdentityUser user = new IdentityUser();
         user.UserName = txtUsrName.Text;
 
@@ -56,6 +56,8 @@ public partial class Pages_Account_Register : System.Web.UI.Page
 
                     // Set to log in by Cookie
                     var userIdentity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+
+                    litStatus.Text = "Registration successful!";
 
                     // Redirect to home page
                     authenticationManager.SignIn(new AuthenticationProperties(), userIdentity);

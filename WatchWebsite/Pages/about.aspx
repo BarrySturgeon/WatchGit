@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <p>
         we do watches </p>
-    <div>
+   <!-- <div>
             <div>
             <h2>The Deadline Strikes Back </h2>
                 <br />
@@ -33,6 +33,6 @@
             <p>thousands of remote probes into</p>
             <p>the far reaches of the campus....</p>
             </div>
-    </div>
+    </div> -->
 </asp:Content>
 
