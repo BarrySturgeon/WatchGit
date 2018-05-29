@@ -19,10 +19,10 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="txtConfirmPassword" runat="server" CssClass="inputs" TextMode="Password" Width="20%"></asp:TextBox>
     </p>
-    <p>
+    <!--<p>
         <asp:Label ID="Label6" runat="server" Text="Email: "></asp:Label>
         <asp:TextBox ID="txtEmail" runat="server" TextMode="Email"></asp:TextBox>
-    </p>
+    </p>-->
     <p>
         <asp:Label ID="Label4" runat="server" Text="First Name:"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
