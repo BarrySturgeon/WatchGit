@@ -18,6 +18,11 @@
 
                 <asp:label runat="server" text="Just click on the issue you're having and we'll develope an estimated repair fee to fix your watch" Font-Size="Large"></asp:label>
 
+                &nbsp;<br />
+&nbsp;<asp:label runat="server" text="(DISCLAIMER: These prices are not final until the watch has been seen and the issue found, this serves as an estimation and not the final price.)" Font-Size="Medium" ID="label1"></asp:label>
+
+                <br />
+
                 <br />
 
                 <br />
@@ -47,6 +52,9 @@
 
 
                 <asp:Label ID="lbResult" Font-size="Larger" runat="server" Text=""></asp:Label>
+
+                <br />
+                <br />
 
                 <br />
             </td>
