@@ -2,71 +2,77 @@
     color: black;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 16px;
-    background-color:#413311;
+    background-image: url("../Images/backg8.PNG");
+    background-repeat:repeat;
+   
+}
+
+#background {
+    
 }
 
 #wrapper {
-    width:1100px;
-    margin:auto;
-    padding-bottom:20px;
-    background-color:#724713;
-
+    width: 1100px;
+    margin: auto;
+    padding-bottom: 20px;
+    background-color: #220e01;
     -moz-border-radius: 25px;
     -webkit-border-radius: 25px;
     border-radius: 25px;
-    overflow:hidden;
+    overflow: hidden;
 }
 
-#banner {
+#banner{
+    
 }
 
 #title {
-    text-align:center;
+    text-align:center;   
+    color:burlywood;
 
 }
 
 #navigation {
-    height:45px;
-    background:linear-gradient(to top,meduimblue,blue);
-
+    height: 45px;
+   font-size:20px; 
 }
 
 #nav {
-    display:block;
-    list-style:none;
+    display: block;
+    list-style: none;
     text-align: center;
-
 }
 
-#nav ul {
-    display:none;
-    list-style:none;
-}
+    #nav ul {
+        display: none;
+        list-style: none;
+        
+    }
 
-#nav li {
-    float:left;
-    display:block;
-    margin-top: 20px;
-    text-transform: uppercase;
-    padding: 0px 20px 0px 20px;
-    border-left: 1px solid grey;
+    #nav li {
+        float: left;
+        display: block;
+        margin-top: 20px;
+        text-transform: uppercase;
+        padding: 0px 20px 0px 20px;
+        border-left: 1px solid grey;
+       
+    }
 
-}
-
-#nav a:link, #nav a:visited, #nav a:active {
-    display:block;
-    color:chocolate;
-    text-decoration:none;
-}
+    #nav a:link, #nav a:visited, #nav a:active {
+        display: block;
+        color: burlywood;
+        
+    }
 
     #nav a:hover {
-        background-color:burlywood;
-
+        background-color: burlywood;
     }
 
 #content {
-    padding:20px;
-    min-height:400px;
+    padding: 20px;
+    min-height: 400px;
+    background-color: #CCC;
 }
 
 #ContentPlaceHolder1_pnlProdutcs div {
@@ -77,8 +83,8 @@
 }
 
 .productImage {
-    width: 100%;
-    height: 100%;
+    width: 150px;
+    height: 150px;
     vertical-align: central;
     padding: 10px;
     border-radius: 50px;
@@ -91,9 +97,9 @@
     font-weight: bold;
 }
 
-.productPrice { 
+.productPrice {
     font-family: Arial, Arial, Helvetica, sans-serif, sans-serif;
-    color: #FFB600;
+    color: black;
 }
 
 .detailsImage {
@@ -117,7 +123,7 @@
     margin: 10px;
     color: #ffffff;
     border: 0;
-    border-radius: 4px; 
+    border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     clear: both;
@@ -137,41 +143,32 @@
     width: 260px;
 }
 
-.inputs:focus {
-
-    background:#FFF;
-    -webkit-box-shadow: 0 0 25px #CCC;
-    -moz-box-shadow: 0 0 25px #CCC;
-    box-shadow: 0 0 25px #CCC;
-
-
-}
+    .inputs:focus {
+        background: #FFF;
+        -webkit-box-shadow: 0 0 25px #CCC;
+        -moz-box-shadow: 0 0 25px #CCC;
+        box-shadow: 0 0 25px #CCC;
+    }
 
 
-.cartTable 
-{
-
-    text-align:center;
+.cartTable {
+    text-align: center;
     border: 15px solid brown;
     margin-bottom: 10px;
     width: 100%;
     padding: 10px;
 }
 
-    .cartTable input 
-    {
+    .cartTable input {
         width: 65px;
         height: 65px;
     }
 
     .cartTable h4 {
-    padding: 0;
-    margin: 0;    
+        padding: 0;
+        margin: 0;
     }
 
-    .cartTable tr td select 
-    {
+    .cartTable tr td select {
         width: 100px;
     }
-
-
