@@ -3,36 +3,26 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <p>
-        we do watches </p>
-   <!-- <div>
-            <div>
-            <h2>The Deadline Strikes Back </h2>
-                <br />
-            </div><div>
-            <p>It is a dark time for the</p>
-            <p>Swiss Titans. Although the Deadline </p>
-            <p>Presentation has been prepared for,</p>
-            <p>Imperial lecturers have driven the</p>
-            <p>Rebel forces from their hidden</p>
-            <p>base (mom's basement) and pursued them across</p>
-            <p>the campus.</p>
-                <br />
-            </div><div>
-            <p>Evading the dreaded Imperial</p>
-            <p>Faculty of IT, a group of freedom</p>
-            <p>fighters led by Jeff Chitando</p>
-            <p>has established a new secret</p>
-            <p>base on the remote ice world</p>
-            <p>of Lecture Theatre 7.</p>
-                <br />
-            </div><div>
-            <p>The evil lord Darth Vorster,</p>
-            <p>obsessed with finding young</p>
-            <p>Chitando, has dispatched</p>
-            <p>thousands of remote probes into</p>
-            <p>the far reaches of the campus....</p>
-            </div>
-    </div> -->
+    <p> We do watches, follow us on Facebook and Twitter! </p>
+
+
+    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTimemasters-Swiss-Timepiece-Specialists-397900387404038%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+
+
+
+    <br />
+    <br />
+    <br />
+
+
+
+    <br />
+
+
+
+    <a href="https://twitter.com/TimemastersSTS" class="twitter-follow-button" data-show-count="false">Follow @TimemastersSTS</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    
+
+
 </asp:Content>
 
