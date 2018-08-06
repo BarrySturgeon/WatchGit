@@ -2,9 +2,9 @@
     color: black;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 16px;
-    background-image: url("../Images/backg8.PNG");
-    background-repeat:repeat;
-   
+    background-image: url("../Images/woodbg.jpg");
+    background-repeat: repeat;
+    background-color:grey;
 }
 
 #background {
@@ -41,12 +41,13 @@
     display: block;
     list-style: none;
     text-align: center;
+    text-decoration:none;
 }
 
     #nav ul {
         display: none;
         list-style: none;
-        
+        text-decoration: none;
     }
 
     #nav li {
@@ -56,23 +57,24 @@
         text-transform: uppercase;
         padding: 0px 20px 0px 20px;
         border-left: 1px solid grey;
-       
+        text-decoration: none;
     }
 
     #nav a:link, #nav a:visited, #nav a:active {
         display: block;
         color: burlywood;
-        
+        text-decoration: none;
     }
 
     #nav a:hover {
         background-color: burlywood;
+        text-decoration: none;
     }
 
 #content {
     padding: 20px;
     min-height: 400px;
-    background-color: #CCC;
+    background-color: #eac89b; /*#CCC*/
 }
 
 #ContentPlaceHolder1_pnlProdutcs div {
