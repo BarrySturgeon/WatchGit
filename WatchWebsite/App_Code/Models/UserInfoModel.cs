@@ -10,15 +10,15 @@ public class UserInfoModel
 {
     public UserInformation GetUserInformation(string guId) {
 
-        WatchDBv2Entities db = new WatchDBv2Entities();
-        UserInformation info = (from x in db.UserInformations where x.GUID == guId select x).FirstOrDefault();
+        WatchDatabaseV4Entities db = new WatchDatabaseV4Entities();
+        UserInformation info = (from x in dbo.UserInformations where x.GUID == guId select x).FirstOrDefault();
         return info;
     }
 
     public void InsertUserInformation(UserInformation info) {
 
-        WatchDBv2Entities db = new WatchDBv2Entities();
-        db.UserInformations.Add(info);
-        db.SaveChanges();
+        WatchDatabaseV4Entities db = new WatchDatabaseV4Entities();
+        dbo.UserInformations.Add(info);
+        dbo.SaveChanges();
     }
 }

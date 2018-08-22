@@ -19,9 +19,9 @@ public class TransactionModel
     {
         try
         {
-            WatchDBEntities wdb = new WatchDBEntities();
-            wdb.Transactions.Add(transaction);
-            wdb.SaveChanges();
+            WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities();
+            dbo.Transactions.Add(transaction);
+            dbo.SaveChanges();
 
             return "Add Successful";
         }
@@ -35,8 +35,8 @@ public class TransactionModel
     {
         try
         {
-            WatchDBEntities wdb = new WatchDBEntities();
-            Transaction t = wdb.Transactions.Find(id);
+            WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities();
+            Transaction t = dbo.Transactions.Find(id);
             t.Date = transaction.Date;
             t.Description = transaction.Description;
             t.Comment = transaction.Comment;
@@ -44,7 +44,7 @@ public class TransactionModel
             t.VAT = transaction.VAT;
             t.Total = transaction.Total;
 
-            wdb.SaveChanges();
+            dbo.SaveChanges();
 
             return "Update Successful";
         }
@@ -58,14 +58,14 @@ public class TransactionModel
     {
         try
         {
-            WatchDBEntities wdb = new WatchDBEntities();
+            WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities();
 
-            Transaction transaction = wdb.Transactions.Find(id);
+            Transaction transaction = dbo.Transactions.Find(id);
 
-            wdb.Transactions.Attach(transaction);
-            wdb.Transactions.Remove(transaction);
+            dbo.Transactions.Attach(transaction);
+            dbo.Transactions.Remove(transaction);
 
-            wdb.SaveChanges();
+            dbo.SaveChanges();
 
             return "Delete Successful";
         }

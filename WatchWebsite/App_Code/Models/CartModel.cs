@@ -13,11 +13,11 @@ public class CartModel
 
         try
         {
-            WatchDBv2Entities db = new WatchDBv2Entities();
-            db.Carts.Add(cart);
-            db.SaveChanges();
+            WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities();
+            dbo.Carts.Add(cart);
+            dbo.SaveChanges();
 
-            return cart.DatePurchased + " was succesfully inserted";
+            return cart.Date_Purchased + " was succesfully inserted";
         }
         catch (Exception e)
         {
@@ -31,21 +31,21 @@ public class CartModel
 
         try
         {
-            WatchDBv2Entities db = new WatchDBv2Entities();
+            WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities();
 
             //fetch from db
-            Cart p = db.Carts.Find(id);
+            Cart p = dbo.Carts.Find(id);
 
-            p.DatePurchased = cart.DatePurchased;
-            p.ClientID = cart.ClientID;
+            p.Date_Purchased = cart.Date_Purchased;
+            p.User_ID = cart.User_ID;
             p.Amount = cart.Amount;
-            p.IsInCart = cart.IsInCart;
-            p.ProductID = cart.ProductID;
+            p.Is_In_Cart = cart.Is_In_Cart;
+            p.Product_ID = cart.Product_ID;
 
 
 
-            db.SaveChanges();
-            return cart.DatePurchased + " was succesfully updated";
+            dbo.SaveChanges();
+            return cart.Date_Purchased + " was succesfully updated";
 
         }
         catch (Exception e)
@@ -60,14 +60,14 @@ public class CartModel
 
         try
         {
-            WatchDBv2Entities db = new WatchDBv2Entities();
-            Cart cart = db.Carts.Find(id);
+            WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities();
+            Cart cart = dbo.Carts.Find(id);
 
-            db.Carts.Attach(cart);
-            db.Carts.Remove(cart);
-            db.SaveChanges();
+            dbo.Carts.Attach(cart);
+            dbo.Carts.Remove(cart);
+            dbo.SaveChanges();
 
-            return cart.DatePurchased + " was succesfully deleted";
+            return cart.Date_Purchased + " was succesfully deleted";
 
 
 
@@ -81,8 +81,8 @@ public class CartModel
 
     public List<Cart> GetOrdersInCart(string userId)
     {
-        WatchDBv2Entities db = new WatchDBv2Entities();
-        List<Cart> orders = (from x in db.Carts where x.ClientID == userId && x.IsInCart orderby x.DatePurchased select x).ToList();
+        WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities();
+        List<Cart> orders = (from x in dbo.Carts where (x.User_ID == userId) && (x.Is_In_Cart == true) orderby x.Date_Purchased select x).ToList();
         return orders;
     }
 
@@ -90,10 +90,10 @@ public class CartModel
     {
         try
         {
-            WatchDBv2Entities db = new WatchDBv2Entities();
-            int amount = (from x in db.Carts
-                          where x.ClientID == userId && x.IsInCart
-                          select x.Amount).Sum();
+            WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities();
+            int amount = (from x in dbo.Carts
+                          where x.User_ID.Equals(userId) && x.Is_In_Cart.Equals(true)
+                          select (int)x.Amount).Sum();
             return amount;
 
         }
@@ -106,26 +106,26 @@ public class CartModel
 
     public void UpdateQuantity(int id, int quantity)
     {
-        WatchDBv2Entities db = new WatchDBv2Entities();
-        Cart cart = db.Carts.Find(id);
+        WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities();
+        Cart cart = dbo.Carts.Find(id);
         cart.Amount = quantity;
-        db.SaveChanges();
+        dbo.SaveChanges();
 
     }
 
     public void MarkOrdersAsPaid(List<Cart> carts)
     {
-        WatchDBv2Entities db = new WatchDBv2Entities();
+        WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities();
         if (carts != null) {
             foreach (Cart cart in carts) {
 
-                Cart oldCart = db.Carts.Find(cart.ID);
-                oldCart.DatePurchased = DateTime.Now;
-                oldCart.IsInCart = false;
+                Cart oldCart = dbo.Carts.Find(cart.Cart_ID);
+                oldCart.Date_Purchased = DateTime.Now;
+                oldCart.Is_In_Cart = false;
 
             }
 
-            db.SaveChanges();
+            dbo.SaveChanges();
 
         }
 

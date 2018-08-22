@@ -13,11 +13,11 @@ public class ProductsModel
 
         try
         {
-            WatchDBv2Entities db = new WatchDBv2Entities();
-            db.Products.Add(product);
-            db.SaveChanges();
+            WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities();
+            dbo.Products.Add(product);
+            dbo.SaveChanges();
 
-            return product.Name + " was succesfully inserted";
+            return product.Description + " was succesfully inserted";
         }
         catch (Exception e) {
             return "Error: " + e;
@@ -29,19 +29,46 @@ public class ProductsModel
 
         try
         {
-            WatchDBv2Entities db = new WatchDBv2Entities();
+            WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities();
 
             //fetch from db
-            Product p = db.Products.Find(id);
+            Product p = dbo.Products.Find(id);
 
-            p.Name = product.Name;
-            p.Price = product.Price;
-            p.TypeId = product.TypeId;
+            // keys
+            p.Product_ID = product.Product_ID;
+            p.Branch_ID = product.Branch_ID;
+            p.ProductType_ID = product.ProductType_ID;
+            p.Image_ID = product.Image_ID;
+
+            // name..?
+            // TODO fix name
             p.Description = product.Description;
-            p.Image = product.Image;
 
-            db.SaveChanges();
-            return product.Name + " was succesfully updated";
+            // prices
+            p.Subtotal = product.Subtotal;
+            p.VAT = product.VAT;
+            p.Total = product.Total;
+
+            // quantity
+            p.Quantity = product.Quantity;
+
+            // availability fields
+            p.Is_Available = product.Is_Available;
+            p.Is_Visible = product.Is_Visible;
+
+            // other
+            p.Material = product.Material;
+            p.Watch_Series = product.Watch_Series;
+            p.Watch_Style = product.Watch_Style;
+            p.Watch_Movement = product.Watch_Movement;
+            p.Watch_DialType = product.Watch_DialType;
+            p.Watch_ModelYear = product.Watch_ModelYear;
+            p.Jewel_Size = product.Jewel_Size;
+
+
+
+            dbo.SaveChanges();
+            return product.Description + " was succesfully updated";
 
         }
         catch (Exception e)
@@ -55,14 +82,14 @@ public class ProductsModel
 
         try
         {
-            WatchDBv2Entities db = new WatchDBv2Entities();
-            Product product = db.Products.Find(id);
+            WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities();
+            Product product = dbo.Products.Find(id);
 
-            db.Products.Attach(product);
-            db.Products.Remove(product);
-            db.SaveChanges();
+            dbo.Products.Attach(product);
+            dbo.Products.Remove(product);
+            dbo.SaveChanges();
 
-            return product.Name + " was succesfully deleted";
+            return product.Description + " was succesfully deleted";
 
 
 
@@ -78,8 +105,8 @@ public class ProductsModel
     public Product GetProduct(int id) {
 
         try {
-            using (WatchDBv2Entities db = new WatchDBv2Entities()) {
-                Product product = db.Products.Find(id);
+            using (WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities()) {
+                Product product = dbo.Products.Find(id);
                 return product;
             }
 
@@ -94,12 +121,55 @@ public class ProductsModel
     }
 
 
+    // is the product available
+    public bool isAvailable(int id)
+    {
+        try
+        {
+            using (WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities())
+            {
+                Product product = dbo.Products.Find(id);
+                return product.Is_Available;
+            }
+
+        }
+        catch (Exception)
+        {
+
+            return false;
+
+        }
+
+    }
+
+    // is the product visible (Visibility functionality for the website)
+    public bool isVisible(int id)
+    {
+        try
+        {
+            using (WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities())
+            {
+                Product product = dbo.Products.Find(id);
+                return product.Is_Visible;
+            }
+
+        }
+        catch (Exception)
+        {
+
+            return false;
+
+        }
+    }
+
+
+
     public List<Product> GetAllProducts() {
         try
         {
-            using (WatchDBv2Entities db = new WatchDBv2Entities())
+            using (WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities())
             {
-                List<Product> products = (from x in db.Products select x).ToList();
+                List<Product> products = (from x in dbo.Products select x).ToList();
                 return products;
 
             }
@@ -118,9 +188,9 @@ public class ProductsModel
 
         try
         {
-            using (WatchDBv2Entities db = new WatchDBv2Entities())
+            using (WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities())
             {
-                List<Product> products = (from x in db.Products where x.TypeId == typeId select x).ToList();
+                List<Product> products = (from x in dbo.Products where x.ProductType_ID == typeId select x).ToList();
                 return products;
 
             }

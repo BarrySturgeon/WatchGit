@@ -11,10 +11,10 @@ using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 
-public partial class WatchDBv2Entities : DbContext
+public partial class WatchDatabaseV4Entities : DbContext
 {
-    public WatchDBv2Entities()
-        : base("name=WatchDBv2Entities")
+    public WatchDatabaseV4Entities()
+        : base("name=WatchDatabaseV4Entities")
     {
     }
 
@@ -23,8 +23,14 @@ public partial class WatchDBv2Entities : DbContext
         throw new UnintentionalCodeFirstException();
     }
 
+    public virtual DbSet<Branch> Branches { get; set; }
     public virtual DbSet<Cart> Carts { get; set; }
+    public virtual DbSet<Customer> Customers { get; set; }
+    public virtual DbSet<Image> Images { get; set; }
+    public virtual DbSet<Manager> Managers { get; set; }
+    public virtual DbSet<Order> Orders { get; set; }
     public virtual DbSet<Product> Products { get; set; }
     public virtual DbSet<ProductType> ProductTypes { get; set; }
-    public virtual DbSet<UserInformation> UserInformations { get; set; }
+    public virtual DbSet<Repair> Repairs { get; set; }
+    public virtual DbSet<Transaction> Transactions { get; set; }
 }

@@ -6,22 +6,22 @@ using System.Web;
 /// <summary>
 /// Summary description for OrderItemModel
 /// </summary>
-public class OrderItemModel
+public class OrderModel
 {
-    public OrderItemModel()
+    public OrderModel()
     {
         //
         // TODO: Add constructor logic here
         //
     }
 
-    public String InsertOrderItem(OrderItem orderItem)
+    public String InsertOrderItem(Order orderItem)
     {
         try
         {
-            WatchDBEntities wdb = new WatchDBEntities();
-            wdb.OrderItems.Add(orderItem);
-            wdb.SaveChanges();
+            WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities();
+            dbo.Orders.Add(orderItem);
+            dbo.SaveChanges();
 
             return "Add Successful";
         }
@@ -31,20 +31,20 @@ public class OrderItemModel
         }
     }
 
-    public String UpdateOrderItem(int id, OrderItem orderItem)
+    public String UpdateOrderItem(int id, Order orderItem)
     {
         try
         {
-            WatchDBEntities wdb = new WatchDBEntities();
+            WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities();
 
-            OrderItem oi = wdb.OrderItems.Find(id);
+            Order oi = dbo.Orders.Find(id);
 
             //Not so sure about this part, we need to make sure about this.
             oi.Customer_ID = orderItem.Customer_ID;
             oi.Order_ID = orderItem.Order_ID;
-            oi.Item_ID = orderItem.Item_ID;
+            oi.Product_ID = orderItem.Product_ID;
 
-            wdb.SaveChanges();
+            dbo.SaveChanges();
 
             return "Update Successful";
         }
@@ -58,14 +58,14 @@ public class OrderItemModel
     {
         try
         {
-            WatchDBEntities wdb = new WatchDBEntities();
+            WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities();
 
-            OrderItem orderItem = wdb.OrderItems.Find(id);
+            Order orderItem = dbo.Orders.Find(id);
 
-            wdb.OrderItems.Attach(orderItem);
-            wdb.OrderItems.Remove(orderItem);
+            dbo.Orders.Attach(orderItem);
+            dbo.Orders.Remove(orderItem);
 
-            wdb.SaveChanges();
+            dbo.SaveChanges();
 
             return "Delete Successful";
         }

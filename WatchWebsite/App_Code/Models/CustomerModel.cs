@@ -19,9 +19,9 @@ public class CustomerModel
     {
         try
         {
-            WatchDBEntities wdb = new WatchDBEntities();
-            wdb.Customers.Add(customer);
-            wdb.SaveChanges();
+            WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities();
+            dbo.Customers.Add(customer);
+            dbo.SaveChanges();
 
             return "Add Successful";
         }
@@ -35,15 +35,14 @@ public class CustomerModel
     {
         try
         {
-            WatchDBEntities wdb = new WatchDBEntities();
-            Customer c = wdb.Customers.Find(id);
-            c.First_Name = customer.First_Name; // to store Name I will use First Name (First Name + Last Name = Name, normalized attribute).
-            c.Last_Name = customer.Last_Name;  // to store password I will use Last Name (since we don't have pwd field)
+            WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities();
+            Customer c = dbo.Customers.Find(id);
+            c.FirstName = customer.FirstName;
+            c.LastName = customer.LastName;  
             c.Address = customer.Address;
-            c.Phone_Number = customer.Phone_Number;
-            c.Next_Repair_Date = customer.Next_Repair_Date;
+            c.BillAddress = customer.BillAddress;
 
-            wdb.SaveChanges();
+            dbo.SaveChanges();
 
             return "Update Successful";
         }
@@ -57,14 +56,14 @@ public class CustomerModel
     {
         try
         {
-            WatchDBEntities wdb = new WatchDBEntities();
+            WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities();
 
-            Customer customer = wdb.Customers.Find(id);
+            Customer customer = dbo.Customers.Find(id);
 
-            wdb.Customers.Attach(customer);
-            wdb.Customers.Remove(customer);
+            dbo.Customers.Attach(customer);
+            dbo.Customers.Remove(customer);
 
-            wdb.SaveChanges();
+            dbo.SaveChanges();
 
             return "Delete Successful";
         }
