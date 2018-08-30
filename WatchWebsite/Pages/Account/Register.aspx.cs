@@ -8,6 +8,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
+/*
+ * TODO
+ * Add password recovery option during registration via email
+ * Add e-mail confirmation
+ * 
+ * */
 public partial class Pages_Account_Register : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)

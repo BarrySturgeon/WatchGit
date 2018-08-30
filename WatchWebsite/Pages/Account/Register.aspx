@@ -18,7 +18,8 @@
         <asp:Label ID="Label3" runat="server" Text="Confirm Password:" Width="14%"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="txtConfirmPassword" runat="server" CssClass="inputs" TextMode="Password" Width="20%"></asp:TextBox>
-    </p>
+    </p
+    <!-- email confirmation ? -->
     <!--<p>
         <asp:Label ID="Label6" runat="server" Text="Email: "></asp:Label>
         <asp:TextBox ID="txtEmail" runat="server" TextMode="Email"></asp:TextBox>

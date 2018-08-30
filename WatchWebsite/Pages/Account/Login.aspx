@@ -10,6 +10,7 @@
         <asp:Label ID="Label4" runat="server" Text="Username: " Width="20%"></asp:Label>
         <asp:TextBox ID="txtUsrName" runat="server" CssClass="inputs" Width="20%"></asp:TextBox>
     </p>
+    <!-- pointless comment -->
     <p>
         <asp:Label ID="Label5" runat="server" Text="Password: " Width="20%"></asp:Label>
         <asp:TextBox ID="txtPassword" runat="server" CssClass="inputs" TextMode="Password" Width="20%"></asp:TextBox>

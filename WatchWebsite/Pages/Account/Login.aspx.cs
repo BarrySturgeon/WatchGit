@@ -8,6 +8,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
+
+/*
+ * TODO 
+ * Add password recovery functionality
+ * 
+ * */
 public partial class Pages_Account_Login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -16,6 +23,8 @@ public partial class Pages_Account_Login : System.Web.UI.Page
         /* "~/Pages/Management/Management.aspx" */
         {
             throw new HttpException(403, "Forbidden");
+
+     
 
             //Response.StatusCode = 403;
             //Response.End();
@@ -30,7 +39,7 @@ public partial class Pages_Account_Login : System.Web.UI.Page
 
         userStore.Context.Database.Connection.ConnectionString =
             System.Configuration.ConfigurationManager.ConnectionStrings["WatchDBv2ConnectionString"].ConnectionString;
-
+        
 
         UserManager<IdentityUser> manager = new UserManager<IdentityUser>(userStore);
 
@@ -52,5 +61,6 @@ public partial class Pages_Account_Login : System.Web.UI.Page
         {
             litStatus.Text = "Invalid username or password";
         }
+
     }
 }
