@@ -39,22 +39,23 @@ public partial class Pages_ShoppingCart : System.Web.UI.Page
 
         foreach (Cart cart in carts)
         {
-            Product product = model.GetProduct((int)cart.Product_ID);
+            Product product = model.GetProduct(cart.ProductID);
 
             //Create imagne buton
 
             ImageButton btnImage = new ImageButton
             {
                 ImageUrl = string.Format("~/Images/Products/{0}", product.Image),
-                PostBackUrl = string.Format("~/Pages/Product.aspx?id={0}", product.Product_ID),
+                PostBackUrl = string.Format("~/Pages/Product.aspx?id={0}", product.Id),
             };
 
             //Create delete link
             LinkButton lnkDelete = new LinkButton
             {
-                PostBackUrl = string.Format("~/Pages/ShoppingCart.aspx?productId={0}", cart.Product_ID),
+                PostBackUrl = string.Format("~/Pages/ShoppingCart.aspx?productId={0}", cart.ID),
                 Text = "Delete Item",
-                ID = "del" + cart.Product_ID;
+                ID = "del" + cart.ID
+
             };
 
             //Add onclick event

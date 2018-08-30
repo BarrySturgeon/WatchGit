@@ -11,9 +11,9 @@ public partial class Pages_Management_Management : System.Web.UI.Page
     {
         var user = Context.User.Identity;
 
-        if(user.IsAuthenticated)
+        if (user.IsAuthenticated)
         {
-            if(!(user.Name == "admin" || user.Name == "adminRyan"))
+            if (!(user.Name == "admin" || user.Name == "adminRyan"))
             {
                 //Response.StatusCode = 401;
                 //Response.End();
