@@ -26,7 +26,7 @@ public class RepairModel
 
     }
 
-    public string UpdateProduct(int id, Product product)
+    public string UpdateRepair(int id, Repair repair)
     {
 
         try
@@ -34,43 +34,25 @@ public class RepairModel
             WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities();
 
             //fetch from db
-            Product p = dbo.Products.Find(id);
+            Repair r = dbo.Repairs.Find(id);
 
             // keys
-            p.Product_ID = product.Product_ID;
-            p.Branch_ID = product.Branch_ID;
-            p.ProductType_ID = product.ProductType_ID;
-            p.Image_ID = product.Image_ID;
+            r.Repair_ID = repair.Repair_ID;
+            r.Customer_ID = repair.Customer_ID;
 
-            // name..?
-            // TODO fix name
-            p.Description = product.Description;
+            r.Status = repair.Status;
 
             // prices
-            p.Subtotal = product.Subtotal;
-            p.VAT = product.VAT;
-            p.Total = product.Total;
+            r.Subtotal = repair.Subtotal;
+            r.VAT = repair.VAT;
+            r.Total = repair.Total;
 
-            // quantity
-            p.Quantity = product.Quantity;
-
-            // availability fields
-            p.Is_Available = product.Is_Available;
-            p.Is_Visible = product.Is_Visible;
-
-            // other
-            p.Material = product.Material;
-            p.Watch_Series = product.Watch_Series;
-            p.Watch_Style = product.Watch_Style;
-            p.Watch_Movement = product.Watch_Movement;
-            p.Watch_DialType = product.Watch_DialType;
-            p.Watch_ModelYear = product.Watch_ModelYear;
-            p.Jewel_Size = product.Jewel_Size;
-
-
+            r.DateStart = repair.DateStart;
+            r.DateEnd = repair.DateEnd;
+            r.DeliveryFlag = repair.DeliveryFlag;
 
             dbo.SaveChanges();
-            return product.Description + " was succesfully updated";
+            return repair.Customer_ID  + repair.Status + " was succesfully updated";
 
         }
         catch (Exception e)

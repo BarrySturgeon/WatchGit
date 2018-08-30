@@ -34,13 +34,13 @@ public class CartModel
             WatchDatabaseV4Entities dbo = new WatchDatabaseV4Entities();
 
             //fetch from db
-            Cart p = dbo.Carts.Find(id);
+            Cart c = dbo.Carts.Find(id);
 
-            p.Date_Purchased = cart.Date_Purchased;
-            p.User_ID = cart.User_ID;
-            p.Amount = cart.Amount;
-            p.Is_In_Cart = cart.Is_In_Cart;
-            p.Product_ID = cart.Product_ID;
+            c.Date_Purchased = cart.Date_Purchased;
+            c.User_ID = cart.User_ID;
+            c.Amount = cart.Amount;
+            c.Is_In_Cart = cart.Is_In_Cart;
+            c.Product_ID = cart.Product_ID;
 
 
 

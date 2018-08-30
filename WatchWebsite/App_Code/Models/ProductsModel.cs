@@ -122,7 +122,7 @@ public class ProductsModel
 
 
     // is the product available
-    public bool isAvailable(int id)
+    public bool IsAvailable(int id)
     {
         try
         {
@@ -143,7 +143,7 @@ public class ProductsModel
     }
 
     // is the product visible (Visibility functionality for the website)
-    public bool isVisible(int id)
+    public bool IsVisible(int id)
     {
         try
         {

@@ -308,7 +308,7 @@
           <Property Name="Cart_ID" Type="Int32" Nullable="false" />
           <Property Name="Order_ID" Type="Int32" />
           <Property Name="Product_ID" Type="Int32" />
-          <Property Name="User_ID" Type="String" />
+          <Property Name="User_ID" Type="String" Nullable="true" />
           <Property Name="Amount" Type="Int32" />
           <Property Name="Date_Purchased" Type="DateTime" Precision="3" />
           <Property Name="Is_In_Cart" Type="Boolean" />
@@ -371,9 +371,10 @@
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="Product_ID" />
+            <PropertyRef Name="Branch_ID" />
           </Key>
           <Property Name="Product_ID" Type="Int32" Nullable="false" />
-          <Property Name="Branch_ID" Type="Int32" />
+          <Property Name="Branch_ID" Type="Int32" Nullable="true" />
           <Property Name="ProductType_ID" Type="Int32" />
           <Property Name="Image_ID" Type="Int32" />
           <Property Name="Subtotal" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
