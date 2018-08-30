@@ -4,7 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-    <div style="background-color:white">
+
+    
+    <div style="border-style:solid; background-color:white; border-color:saddlebrown;border-radius:15px; border-width:medium">
 
 
     <asp:Panel ID="pnlBookRepair" runat="server">
@@ -32,8 +34,9 @@
                 <br />
 
                 <br />
+&nbsp;&nbsp;&nbsp;&nbsp;
 
-                <asp:checkboxlist ID="chBox" runat="server" >
+                <asp:checkboxlist ID="chBox" runat="server" CellPadding="8" CellSpacing="5" >
 
                     <asp:ListItem Text="Cracked/damaged watch face" Value=500></asp:ListItem>
                     <asp:ListItem Text="Water damage" Value=200></asp:ListItem>
@@ -43,12 +46,17 @@
 
                 </asp:checkboxlist>
 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <br />
+
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                 <br />
 
                 <br />
                 <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                 <asp:Button ID="btnSub" Font-size="Larger" runat="server" Text="Submit" OnClick="btnSub_Click" />
 
@@ -60,9 +68,6 @@
                 <asp:Label ID="lbResult" Font-size="Larger" runat="server" Text=""></asp:Label>
 
                 <br />
-                <br />
-
-                <br />
             </td>
         
         </tr>
@@ -70,6 +75,7 @@
 
     </table>
         </div>
+       
 
 </asp:Content>
 
