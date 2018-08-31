@@ -11,16 +11,14 @@ public partial class Pages_Management_ManageProducts : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
-        {
+        if (!IsPostBack) {
             GetImages();
 
 
-            if (!String.IsNullOrWhiteSpace(Request.QueryString["id"]))
-            {
+            if (!String.IsNullOrWhiteSpace(Request.QueryString["id"])) {
                 int id = Convert.ToInt32(Request.QueryString["id"]);
                 FillPage(id);
-
+      
             }
         }
 
@@ -39,14 +37,13 @@ public partial class Pages_Management_ManageProducts : System.Web.UI.Page
             lblResult.Text = productsModel.UpdateProduct(id, product);
 
         }
-        else
-        {
+        else {
             lblResult.Text = productsModel.InsertProduct(product);
 
         }
 
 
-
+                
     }
 
     private void FillPage(int id)
@@ -59,7 +56,7 @@ public partial class Pages_Management_ManageProducts : System.Web.UI.Page
         txtPrice.Text = product.Price.ToString();
 
         ddlImage.SelectedValue = product.Image;
-        ddlType.SelectedValue = product.TypeId.ToString();
+        ddlType.SelectedValue = product.TypeId.ToString();  
 
     }
 
@@ -95,19 +92,18 @@ public partial class Pages_Management_ManageProducts : System.Web.UI.Page
 
 
 
-    private Product CreateProduct()
-    {
+    private Product CreateProduct() {
 
         Product product = new Product();
 
         product.Name = txtName.Text;
         product.Price = Convert.ToInt32(txtPrice.Text);
-        product.TypeId = Convert.ToInt32(ddlType.SelectedValue);
+        product.TypeId = Convert.ToInt32(ddlType.SelectedValue);    
         product.Description = txtDescription.Text;
         product.Image = ddlImage.SelectedValue;
 
         return product;
-
+        
 
     }
 

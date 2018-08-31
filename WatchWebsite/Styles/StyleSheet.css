@@ -2,9 +2,9 @@
     color: black;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 16px;
-    background-image: url("../Images/backg8.PNG");
-    background-repeat:repeat;
-   
+    background-image: url("../Images/woodbg.jpg");
+    background-repeat: repeat;
+    background-color:grey;
 }
 
 #background {
@@ -35,13 +35,13 @@
 #navigation {
     height: 45px;
    font-size:20px; 
-   text-decoration:none;
 }
 
 #nav {
     display: block;
     list-style: none;
     text-align: center;
+    text-decoration:none;
 }
 
     #nav ul {

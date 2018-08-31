@@ -38,7 +38,7 @@ public class ProductTypeTypeModel
             ProductType p = db.ProductTypes.Find(id);
 
             p.Name = productType.Name;
-
+            
 
             db.SaveChanges();
             return productType.Name + " was succesfully updated";

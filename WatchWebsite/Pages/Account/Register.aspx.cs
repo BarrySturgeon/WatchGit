@@ -22,7 +22,7 @@ public partial class Pages_Account_Register : System.Web.UI.Page
         UserStore<IdentityUser> userStore = new UserStore<IdentityUser>();
 
         userStore.Context.Database.Connection.ConnectionString =
-            System.Configuration.ConfigurationManager.ConnectionStrings["WatchDatabaseV4Entities"].ConnectionString;
+            System.Configuration.ConfigurationManager.ConnectionStrings["WatchDBv2ConnectionString"].ConnectionString;
 
 
         UserManager<IdentityUser> manager = new UserManager<IdentityUser>(userStore);
@@ -32,16 +32,15 @@ public partial class Pages_Account_Register : System.Web.UI.Page
         IdentityUser user = new IdentityUser();
         user.UserName = txtUsrName.Text;
 
-        if (txtPassword.Text == txtConfirmPassword.Text)
+        if(txtPassword.Text == txtConfirmPassword.Text)
         {
             try
             {
                 IdentityResult result = manager.Create(user, txtPassword.Text);
-                if (result.Succeeded)
+                if(result.Succeeded)
                 {
 
-                    UserInformation info = new UserInformation
-                    {
+                    UserInformation info = new UserInformation {
 
                         Address = txtAddress.Text,
                         FirstName = txtFirstName.Text,
@@ -62,14 +61,14 @@ public partial class Pages_Account_Register : System.Web.UI.Page
 
                     // Redirect to home page
                     authenticationManager.SignIn(new AuthenticationProperties(), userIdentity);
-                    Response.Redirect("~/Pages/Index.aspx");
+                    Response.Redirect("~/Pages/Index.aspx"); 
                 }
                 else
                 {
                     litStatus.Text = result.Errors.FirstOrDefault();
                 }
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 litStatus.Text = ex.Message;
             }

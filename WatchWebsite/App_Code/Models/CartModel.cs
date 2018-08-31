@@ -97,8 +97,7 @@ public class CartModel
             return amount;
 
         }
-        catch
-        {
+        catch {
 
             return 0;
         }
@@ -117,10 +116,8 @@ public class CartModel
     public void MarkOrdersAsPaid(List<Cart> carts)
     {
         WatchDBv2Entities db = new WatchDBv2Entities();
-        if (carts != null)
-        {
-            foreach (Cart cart in carts)
-            {
+        if (carts != null) {
+            foreach (Cart cart in carts) {
 
                 Cart oldCart = db.Carts.Find(cart.ID);
                 oldCart.DatePurchased = DateTime.Now;

@@ -9,8 +9,7 @@ using System.Web;
 public class ProductsModel
 {
 
-    public string InsertProduct(Product product)
-    {
+    public string InsertProduct(Product product) {
 
         try
         {
@@ -20,15 +19,13 @@ public class ProductsModel
 
             return product.Name + " was succesfully inserted";
         }
-        catch (Exception e)
-        {
+        catch (Exception e) {
             return "Error: " + e;
         }
 
     }
 
-    public string UpdateProduct(int id, Product product)
-    {
+    public string UpdateProduct(int id, Product product) {
 
         try
         {
@@ -54,8 +51,7 @@ public class ProductsModel
 
     }
 
-    public string DeleteProduct(int id)
-    {
+    public string DeleteProduct(int id) {
 
         try
         {
@@ -79,20 +75,16 @@ public class ProductsModel
     }
 
 
-    public Product GetProduct(int id)
-    {
+    public Product GetProduct(int id) {
 
-        try
-        {
-            using (WatchDBv2Entities db = new WatchDBv2Entities())
-            {
+        try {
+            using (WatchDBv2Entities db = new WatchDBv2Entities()) {
                 Product product = db.Products.Find(id);
                 return product;
             }
 
         }
-        catch (Exception)
-        {
+        catch (Exception) {
 
             return null;
 
@@ -102,8 +94,7 @@ public class ProductsModel
     }
 
 
-    public List<Product> GetAllProducts()
-    {
+    public List<Product> GetAllProducts() {
         try
         {
             using (WatchDBv2Entities db = new WatchDBv2Entities())
@@ -113,8 +104,7 @@ public class ProductsModel
 
             }
         }
-        catch (Exception)
-        {
+        catch (Exception) {
             return null;
 
         }
@@ -124,8 +114,7 @@ public class ProductsModel
 
 
 
-    public List<Product> GetProductsByType(int typeId)
-    {
+    public List<Product> GetProductsByType(int typeId) {
 
         try
         {

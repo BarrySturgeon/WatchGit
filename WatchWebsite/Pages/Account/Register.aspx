@@ -38,7 +38,7 @@
         <asp:TextBox ID="txtAddress" runat="server" Height="63px" TextMode="MultiLine" Width="198px"></asp:TextBox>
     </p>
     <p>
-        <asp:Button ID="Button1" runat="server" CssClass="button" Text="Register" OnClick="Button1_Click" /> 
+        <asp:Button ID="Button1" runat="server" CssClass="button" Text="Register" OnClick="Button1_Click" />
     </p>
 </asp:Content>
 
