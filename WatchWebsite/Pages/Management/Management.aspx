@@ -78,5 +78,9 @@
         </UpdateParameters>
     </asp:SqlDataSource>
     <br />
+    <div>
+        <!-- TODO upload images -->
+        <asp:Button ID="Button1" runat="server" Text="Button" />
+    </div>
 </asp:Content>
 

@@ -54,7 +54,11 @@
                 <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
-
+            <div>
+                <!-- With empirical evidence I conclude, this is the footer of the website -->
+                <p> test</p>
+                <p style="align-content:center; color:#ffffff">Website made by a team of undergraduates from Monash South Africa ⓒ SwissTitans, 2018-2036</p>
+            </div>
         </div>
 
 
