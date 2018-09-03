@@ -59,4 +59,20 @@ public partial class Pages_Index : System.Web.UI.Page
             Response.Redirect("~/Pages/Errors/InternalServerErrorPage.aspx");
         }
     }
+
+    private void InitializeSearch()
+    {
+        // TODO
+        // probably not needed here
+    }
+
+
+    protected void SearchBtn_Click(object sender, EventArgs e)
+    {
+        // redirect to Search.aspx
+        // but bring in some args 
+        // String of what is being searched so that Search.aspx could process it
+        Response.Redirect("~/Pages/Search.aspx");
+
+    }
 }
