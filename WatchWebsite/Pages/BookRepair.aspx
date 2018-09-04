@@ -34,10 +34,11 @@
                 <br />
 
                 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;
-
-                <asp:checkboxlist ID="chBox" runat="server" CellPadding="8" CellSpacing="5" >
-
+&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="Label2" runat="server" Text="Please choose a price range in which your watch resides and then your issues:"></asp:Label>
+&nbsp;<asp:checkboxlist ID="chBox" runat="server" CellPadding="8" CellSpacing="5" >
+                    <asp:ListItem Text="Under R1000" Value=250></asp:ListItem>
+                    <asp:ListItem Text="Greater than R1000" Value=500></asp:ListItem>
+                    <asp:ListItem Text="Greater than R3000" Value=1000></asp:ListItem>
                     <asp:ListItem Text="Cracked/damaged watch face" Value=500></asp:ListItem>
                     <asp:ListItem Text="Water damage" Value=200></asp:ListItem>
                     <asp:ListItem Text="Hands not moving/battery issues" Value=300></asp:ListItem>
@@ -66,6 +67,12 @@
 
 
                 <asp:Label ID="lbResult" Font-size="Larger" runat="server" Text=""></asp:Label>
+
+                <br />
+                <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit to shop?" Visible="false" />
+                <br />
 
                 <br />
             </td>
