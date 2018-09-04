@@ -35,6 +35,6 @@ public partial class Pages_BookRepair : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("~/Pages/Account/login.aspx");
     }
 }
