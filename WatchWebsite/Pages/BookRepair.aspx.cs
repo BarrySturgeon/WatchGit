@@ -15,6 +15,8 @@ public partial class Pages_BookRepair : System.Web.UI.Page
     protected void btnSub_Click(object sender, EventArgs e)
     {
 
+        Button1.Visible = true;
+
         foreach (ListItem item in chBox.Items)
         {
             if (item.Selected) {
@@ -24,8 +26,15 @@ public partial class Pages_BookRepair : System.Web.UI.Page
             }
 
         }
+      
+        
 
 
 
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Pages/Account/login.aspx");
     }
 }

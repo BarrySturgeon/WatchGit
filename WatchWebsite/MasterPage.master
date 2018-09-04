@@ -5,7 +5,7 @@
 <html>
 
 <head runat="server">
-    <title>WatchWebsite</title>
+    <title>Timemasters: Swiss Timepiece Specialists</title>
     <link rel="stylesheet" href="Styles/StyleSheet.css" type="text/css" />
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
