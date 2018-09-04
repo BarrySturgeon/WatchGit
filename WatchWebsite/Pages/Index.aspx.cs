@@ -7,8 +7,11 @@ using System.Web.UI.WebControls;
 
 public partial class Pages_Index : System.Web.UI.Page
 {
+    private bool hasBeenClicked = false;
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        SearchBar.TextMode = TextBoxMode.Search;
         FillPage();
     }
 
@@ -60,19 +63,39 @@ public partial class Pages_Index : System.Web.UI.Page
         }
     }
 
-    private void InitializeSearch()
-    {
-        // TODO
-        // probably not needed here
-    }
-
 
     protected void SearchBtn_Click(object sender, EventArgs e)
     {
+        // 
+        String payload = SearchBar.Text;
+
+
+
         // redirect to Search.aspx
         // but bring in some args 
         // String of what is being searched so that Search.aspx could process it
-        Response.Redirect("~/Pages/Search.aspx");
+        Response.Redirect("~/Pages/Search.aspx?s=" + SearchBar.Text);
 
+    }
+
+    private void SearchBar_Initialize(object sender, EventArgs e)
+    {
+        SearchBar.Attributes["onclick"] = String.Empty; // what now?!
+    }
+
+    protected void SearchBar_Focus(/*possibly not needed */object sender, EventArgs e)
+    {   
+        // shitcoding \o/ YAY!
+        if (!hasBeenClicked)
+        {
+            SearchBar.Text = String.Empty;
+            hasBeenClicked = true;
+        }
+    }
+    // end
+
+    protected void SearchBar_TextChanged(object sender, EventArgs e)
+    {
+        // wut
     }
 }

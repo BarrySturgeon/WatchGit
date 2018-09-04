@@ -14,9 +14,9 @@ public class ProductTypeTypeModel
 
         try
         {
-            WatchDBv2Entities db = new WatchDBv2Entities();
-            db.ProductTypes.Add(productType);
-            db.SaveChanges();
+            WatchDBv2ConnectionStrings dbo = new WatchDBv2ConnectionStrings();
+            dbo.ProductTypes.Add(productType);
+            dbo.SaveChanges();
 
             return productType.Name + " was succesfully inserted";
         }
@@ -32,15 +32,15 @@ public class ProductTypeTypeModel
 
         try
         {
-            WatchDBv2Entities db = new WatchDBv2Entities();
+            WatchDBv2ConnectionStrings dbo = new WatchDBv2ConnectionStrings();
 
             //fetch from db
-            ProductType p = db.ProductTypes.Find(id);
+            ProductType p = dbo.ProductTypes.Find(id);
 
             p.Name = productType.Name;
             
 
-            db.SaveChanges();
+            dbo.SaveChanges();
             return productType.Name + " was succesfully updated";
 
         }
@@ -56,12 +56,12 @@ public class ProductTypeTypeModel
 
         try
         {
-            WatchDBv2Entities db = new WatchDBv2Entities();
-            ProductType productType = db.ProductTypes.Find(id);
+            WatchDBv2ConnectionStrings dbo = new WatchDBv2ConnectionStrings();
+            ProductType productType = dbo.ProductTypes.Find(id);
 
-            db.ProductTypes.Attach(productType);
-            db.ProductTypes.Remove(productType);
-            db.SaveChanges();
+            dbo.ProductTypes.Attach(productType);
+            dbo.ProductTypes.Remove(productType);
+            dbo.SaveChanges();
 
             return productType.Name + " was succesfully deleted";
 

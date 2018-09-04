@@ -4,13 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="166ce4dd46584cf5a880e62a3dc270f8" Name="Diagram1">
-        <EntityTypeShape EntityType="WatchDBv2Model.Cart" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="WatchDBv2Model.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="WatchDBv2Model.ProductType" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+      <Diagram DiagramId="30570525592c4335aed7ebeca91df541" Name="Diagram1">
+        <EntityTypeShape EntityType="WatchDBv2Model.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WatchDBv2Model.AspNetRole" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WatchDBv2Model.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="WatchDBv2Model.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WatchDBv2Model.AspNetUser" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WatchDBv2Model.Branch" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WatchDBv2Model.Cart" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WatchDBv2Model.Image" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WatchDBv2Model.Product" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="WatchDBv2Model.ProductType" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WatchDBv2Model.sysdiagram" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WatchDBv2Model.UserInformation" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="WatchDBv2Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="WatchDBv2Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="WatchDBv2Model.FK_Cart_Product" ManuallyRouted="false" />
         <AssociationConnector Association="WatchDBv2Model.FK_Product_ProductTypes" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="WatchDBv2Model.UserInformation" Width="1.5" PointX="8.5" PointY="2.125" />
+        <AssociationConnector Association="WatchDBv2Model.AspNetUserRoles" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
      <div>
-        <asp:TextBox runat="server" Width="640px"></asp:TextBox>
+        <asp:TextBox runat="server" BackColor="" Text="Search for products" ID="SearchBar" Width="640px" OnTextChanged="SearchBar_TextChanged" ></asp:TextBox>
         <asp:Button runat="server" Text="Search" ID="SearchBtn" OnClick="SearchBtn_Click" />
      </div>
     <asp:Panel ID="pnlProducts" runat="server">

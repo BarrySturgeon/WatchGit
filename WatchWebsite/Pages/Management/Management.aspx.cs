@@ -28,7 +28,7 @@ public partial class Pages_Management_Management : System.Web.UI.Page
         }
     }
 
-    protected void grdProducts_RowEditing(Object sender, GridViewEditEventArgs e)
+    protected void GrdProducts_RowEditing(Object sender, GridViewEditEventArgs e)
     {
         GridViewRow row = grdProducts.Rows[e.NewEditIndex];
         int rowId = Convert.ToInt32(row.Cells[1].Text);
