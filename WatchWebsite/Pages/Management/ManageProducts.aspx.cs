@@ -25,7 +25,7 @@ public partial class Pages_Management_ManageProducts : System.Web.UI.Page
     }
 
 
-    protected void btnSubmit_Click(object sender, EventArgs e)
+    protected void BtnSubmit_Click(object sender, EventArgs e)
     {
         ProductsModel productsModel = new ProductsModel();
         Product product = CreateProduct();
@@ -94,13 +94,14 @@ public partial class Pages_Management_ManageProducts : System.Web.UI.Page
 
     private Product CreateProduct() {
 
-        Product product = new Product();
-
-        product.Name = txtName.Text;
-        product.Price = Convert.ToInt32(txtPrice.Text);
-        product.TypeId = Convert.ToInt32(ddlType.SelectedValue);    
-        product.Description = txtDescription.Text;
-        product.Image = ddlImage.SelectedValue;
+        Product product = new Product
+        {
+            Name = txtName.Text,
+            Price = Convert.ToInt32(txtPrice.Text),
+            TypeId = Convert.ToInt32(ddlType.SelectedValue),
+            Description = txtDescription.Text,
+            Image = ddlImage.SelectedValue
+        };
 
         return product;
         

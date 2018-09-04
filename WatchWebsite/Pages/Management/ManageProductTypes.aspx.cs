@@ -12,18 +12,20 @@ public partial class Pages_Management_ManageProductTypes : System.Web.UI.Page
 
     }
 
-    protected void btnSubmit_Click(object sender, EventArgs e)
+    protected void BtnSubmit_Click(object sender, EventArgs e)
     {
         ProductTypeTypeModel model = new ProductTypeTypeModel();
-        ProductType pt = createProductType();
+        ProductType pt = CreateProductType();
         lblResult.Text = model.InsertProductType(pt);
     }
 
 
-    private ProductType createProductType()
+    private ProductType CreateProductType()
     {
-        ProductType p = new ProductType();
-        p.Name = txtName.Text;
+        ProductType p = new ProductType
+        {
+            Name = txtName.Text
+        };
         return p;
     }
 }
