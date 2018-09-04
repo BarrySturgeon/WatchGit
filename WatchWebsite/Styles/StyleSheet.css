@@ -2,13 +2,12 @@
     color: black;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 16px;
-    background-image: url("../Images/woodbg.jpg");
+    background-image: url("../Images/backg5.jpg");
     background-repeat: repeat;
-    background-color:grey;
+    background-color: grey;
 }
 
 #background {
-    
 }
 
 #wrapper {
@@ -22,26 +21,24 @@
     overflow: hidden;
 }
 
-#banner{
-    
+#banner {
 }
 
 #title {
-    text-align:center;   
-    color:burlywood;
-
+    text-align: center;
+    color: burlywood;
 }
 
 #navigation {
     height: 45px;
-   font-size:20px; 
+    font-size: 20px;
 }
 
 #nav {
     display: block;
     list-style: none;
     text-align: center;
-    text-decoration:none;
+    text-decoration: none;
 }
 
     #nav ul {
@@ -174,3 +171,9 @@
     .cartTable tr td select {
         width: 100px;
     }
+
+
+.searchContainer {
+    padding: 20px, 20px, 20px, 20px;
+    margin: 20px, 20px, 20px, 20px;
+}
