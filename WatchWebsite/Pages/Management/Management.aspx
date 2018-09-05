@@ -6,19 +6,20 @@
     <asp:LinkButton ID="LinkButton1" runat="server" CssClass="button" PostBackUrl="~/Pages/Management/ManageProducts.aspx">Add New Product</asp:LinkButton>
     <br />
     <br />
-    <asp:GridView ID="grdProducts" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="sdsProducts1" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" Height="213px" Width="1084px">
+    <asp:GridView ID="grdProducts" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="sdsProducts" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" Height="213px" Width="1084px">
         <AlternatingRowStyle BackColor="#CCCCCC" />
         <Columns>
             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-            <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
-            <asp:BoundField DataField="TypeId" HeaderText="TypeId" SortExpression="TypeId" />
-            <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
+            <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" DataFormatString="{0:D}" />
+            <asp:BoundField DataField="TypeId" DataFormatString="{0:D}" HeaderText="TypeId" SortExpression="TypeId" NullDisplayText="&lt;empty&gt;" />
             <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+            <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" DataFormatString="{0:C2}"/>
             <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
             <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" />
-            <asp:CheckBoxField DataField="isAvailable" HeaderText="isAvailable" SortExpression="isAvailable" />
+            <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" DataFormatString="{0:D}"/>
+            <asp:CheckBoxField DataField="isAvailable" HeaderText="isAvailable" SortExpression="isAvailable"/>
             <asp:CheckBoxField DataField="isVisible" HeaderText="isVisible" SortExpression="isVisible" />
-            <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
+            <asp:BoundField DataField="BranchId" DataFormatString="{0:D}" HeaderText="BranchId" SortExpression="BranchId" />
         </Columns>
         <FooterStyle BackColor="#CCCCCC" />
         <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
@@ -29,17 +30,9 @@
         <SortedDescendingCellStyle BackColor="#CAC9C9" />
         <SortedDescendingHeaderStyle BackColor="#383838" />
     </asp:GridView>
-    <asp:SqlDataSource ID="sdsProducts1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:WatchDBv2ConnectionString %>" DeleteCommand="DELETE FROM [Product] WHERE [Id] = @original_Id AND [TypeId] = @original_TypeId AND (([Name] = @original_Name) OR ([Name] IS NULL AND @original_Name IS NULL)) AND (([Price] = @original_Price) OR ([Price] IS NULL AND @original_Price IS NULL)) AND (([Description] = @original_Description) OR ([Description] IS NULL AND @original_Description IS NULL)) AND (([Image] = @original_Image) OR ([Image] IS NULL AND @original_Image IS NULL)) AND (([Quantity] = @original_Quantity) OR ([Quantity] IS NULL AND @original_Quantity IS NULL)) AND (([isAvailable] = @original_isAvailable) OR ([isAvailable] IS NULL AND @original_isAvailable IS NULL)) AND (([isVisible] = @original_isVisible) OR ([isVisible] IS NULL AND @original_isVisible IS NULL))" InsertCommand="INSERT INTO [Product] ([TypeId], [Name], [Price], [Description], [Image], [Quantity], [isAvailable], [isVisible]) VALUES (@TypeId, @Name, @Price, @Description, @Image, @Quantity, @isAvailable, @isVisible)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT [Id], [TypeId], [Name], [Price], [Description], [Image], [Quantity], [isAvailable], [isVisible] FROM [Product]" UpdateCommand="UPDATE [Product] SET [TypeId] = @TypeId, [Name] = @Name, [Price] = @Price, [Description] = @Description, [Image] = @Image, [Quantity] = @Quantity, [isAvailable] = @isAvailable, [isVisible] = @isVisible WHERE [Id] = @original_Id AND [TypeId] = @original_TypeId AND (([Name] = @original_Name) OR ([Name] IS NULL AND @original_Name IS NULL)) AND (([Price] = @original_Price) OR ([Price] IS NULL AND @original_Price IS NULL)) AND (([Description] = @original_Description) OR ([Description] IS NULL AND @original_Description IS NULL)) AND (([Image] = @original_Image) OR ([Image] IS NULL AND @original_Image IS NULL)) AND (([Quantity] = @original_Quantity) OR ([Quantity] IS NULL AND @original_Quantity IS NULL)) AND (([isAvailable] = @original_isAvailable) OR ([isAvailable] IS NULL AND @original_isAvailable IS NULL)) AND (([isVisible] = @original_isVisible) OR ([isVisible] IS NULL AND @original_isVisible IS NULL))">
+    <asp:SqlDataSource ID="sdsProducts" runat="server" ConnectionString="<%$ ConnectionStrings:WatchDBv2ConnectionString %>" DeleteCommand="DELETE FROM [Product] WHERE [Id] = @Id" InsertCommand="INSERT INTO [Product] ([TypeId], [Name], [Price], [Description], [Image], [Quantity], [isAvailable], [isVisible], [BranchId]) VALUES (@TypeId, @Name, @Price, @Description, @Image, @Quantity, @isAvailable, @isVisible, @BranchId)" SelectCommand="SELECT [Id], [TypeId], [Name], [Price], [Description], [Image], [Quantity], [isAvailable], [isVisible], [BranchId] FROM [Product]" UpdateCommand="UPDATE [Product] SET [TypeId] = @TypeId, [Name] = @Name, [Price] = @Price, [Description] = @Description, [Image] = @Image, [Quantity] = @Quantity, [isAvailable] = @isAvailable, [isVisible] = @isVisible, [BranchId] = @BranchId WHERE [Id] = @Id">
         <DeleteParameters>
-            <asp:Parameter Name="original_Id" Type="Int32" />
-            <asp:Parameter Name="original_TypeId" Type="Int32" />
-            <asp:Parameter Name="original_Name" Type="String" />
-            <asp:Parameter Name="original_Price" Type="Double" />
-            <asp:Parameter Name="original_Description" Type="String" />
-            <asp:Parameter Name="original_Image" Type="String" />
-            <asp:Parameter Name="original_Quantity" Type="Int32" />
-            <asp:Parameter Name="original_isAvailable" Type="Boolean" />
-            <asp:Parameter Name="original_isVisible" Type="Boolean" />
+            <asp:Parameter Name="Id" Type="Int32" />
         </DeleteParameters>
         <InsertParameters>
             <asp:Parameter Name="TypeId" Type="Int32" />
@@ -50,6 +43,7 @@
             <asp:Parameter Name="Quantity" Type="Int32" />
             <asp:Parameter Name="isAvailable" Type="Boolean" />
             <asp:Parameter Name="isVisible" Type="Boolean" />
+            <asp:Parameter Name="BranchId" Type="Int32" />
         </InsertParameters>
         <UpdateParameters>
             <asp:Parameter Name="TypeId" Type="Int32" />
@@ -60,15 +54,8 @@
             <asp:Parameter Name="Quantity" Type="Int32" />
             <asp:Parameter Name="isAvailable" Type="Boolean" />
             <asp:Parameter Name="isVisible" Type="Boolean" />
-            <asp:Parameter Name="original_Id" Type="Int32" />
-            <asp:Parameter Name="original_TypeId" Type="Int32" />
-            <asp:Parameter Name="original_Name" Type="String" />
-            <asp:Parameter Name="original_Price" Type="Double" />
-            <asp:Parameter Name="original_Description" Type="String" />
-            <asp:Parameter Name="original_Image" Type="String" />
-            <asp:Parameter Name="original_Quantity" Type="Int32" />
-            <asp:Parameter Name="original_isAvailable" Type="Boolean" />
-            <asp:Parameter Name="original_isVisible" Type="Boolean" />
+            <asp:Parameter Name="BranchId" Type="Int32" />
+            <asp:Parameter Name="Id" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
     <br />
@@ -106,7 +93,7 @@
     <br />
     <div>
         <!-- TODO upload images -->
-        <asp:Button ID="Button1" runat="server" Text="Button" />
+        <asp:Button ID="UploadButton" class="button" runat="server" Text="Upload Image" OnClick="Button1_Click" />
     </div>
 </asp:Content>
 

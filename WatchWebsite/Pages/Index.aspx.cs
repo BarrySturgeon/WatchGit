@@ -15,6 +15,14 @@ public partial class Pages_Index : System.Web.UI.Page
         FillPage();
     }
 
+
+    /*
+     * Index.aspx needs to be renamed to Webshop.aspx
+     * TODO
+     * create Index.aspx  (a real index page,  not this crap)
+     * 
+     * */
+
     private void FillPage()
     {
         try
@@ -47,6 +55,9 @@ public partial class Pages_Index : System.Web.UI.Page
                     productPanel.Controls.Add(new Literal { Text = "<br />" });
                     productPanel.Controls.Add(lblPrice);
 
+                    if(!(bool)product.isVisible)
+                        productPanel.Visible = false;
+
                     pnlProducts.Controls.Add(productPanel);
                 }
             }
@@ -55,7 +66,7 @@ public partial class Pages_Index : System.Web.UI.Page
                 pnlProducts.Controls.Add(new Literal { Text = "No products found!" });
             }
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             String temp = e.ToString();
             System.Console.WriteLine("Hello world " + temp);
@@ -78,13 +89,9 @@ public partial class Pages_Index : System.Web.UI.Page
 
     }
 
-    private void SearchBar_Initialize(object sender, EventArgs e)
-    {
-        SearchBar.Attributes["onclick"] = String.Empty; // what now?!
-    }
 
     protected void SearchBar_Focus(/*possibly not needed */object sender, EventArgs e)
-    {   
+    {
         // shitcoding \o/ YAY!
         if (!hasBeenClicked)
         {
@@ -94,8 +101,4 @@ public partial class Pages_Index : System.Web.UI.Page
     }
     // end
 
-    protected void SearchBar_TextChanged(object sender, EventArgs e)
-    {
-        // wut
-    }
 }

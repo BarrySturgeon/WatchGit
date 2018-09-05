@@ -11,10 +11,10 @@ using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 
-public partial class WatchDBv2ConnectionStrings : DbContext
+public partial class WatchDBv2Entities : DbContext
 {
-    public WatchDBv2ConnectionStrings()
-        : base("name=WatchDBv2ConnectionStrings")
+    public WatchDBv2Entities()
+        : base("name=WatchDBv2Entities")
     {
     }
 
@@ -33,6 +33,5 @@ public partial class WatchDBv2ConnectionStrings : DbContext
     public virtual DbSet<Image> Images { get; set; }
     public virtual DbSet<Product> Products { get; set; }
     public virtual DbSet<ProductType> ProductTypes { get; set; }
-    public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     public virtual DbSet<UserInformation> UserInformations { get; set; }
 }

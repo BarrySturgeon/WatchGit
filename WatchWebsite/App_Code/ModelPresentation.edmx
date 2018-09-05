@@ -72,7 +72,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="Location" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="Cart">
           <Key>
@@ -99,13 +99,14 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TypeId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
           <Property Name="Price" Type="float" />
           <Property Name="Description" Type="text" />
-          <Property Name="Image" Type="varchar" MaxLength="150" />
+          <Property Name="Image" Type="nvarchar" MaxLength="150" />
           <Property Name="Quantity" Type="int" />
           <Property Name="isAvailable" Type="bit" />
           <Property Name="isVisible" Type="bit" />
+          <Property Name="BranchId" Type="int" />
         </EntityType>
         <EntityType Name="ProductTypes">
           <Key>
@@ -113,16 +114,6 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="UserInformation">
           <Key>
@@ -203,6 +194,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Product_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Product_ProductTypes">
           <End Role="ProductTypes" Type="Self.ProductTypes" Multiplicity="1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
@@ -227,7 +230,6 @@
           <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductTypes" EntityType="Self.ProductTypes" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserInformation" EntityType="Self.UserInformation" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Cart_Product" Association="Self.FK_Cart_Product">
             <End Role="Product" EntitySet="Product" />
@@ -248,6 +250,10 @@
           <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Branch" Association="Self.FK_Product_Branch">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="Product" EntitySet="Product" />
           </AssociationSet>
           <AssociationSet Name="FK_Product_ProductTypes" Association="Self.FK_Product_ProductTypes">
             <End Role="ProductTypes" EntitySet="ProductTypes" />
@@ -324,7 +330,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_Branch" FromRole="Branch" ToRole="Product" />
         </EntityType>
         <EntityType Name="Cart">
           <Key>
@@ -352,13 +359,15 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TypeId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Double" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Image" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Image" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Quantity" Type="Int32" />
           <Property Name="isAvailable" Type="Boolean" />
           <Property Name="isVisible" Type="Boolean" />
+          <Property Name="BranchId" Type="Int32" />
+          <NavigationProperty Name="Branch" Relationship="Self.FK_Product_Branch" FromRole="Product" ToRole="Branch" />
           <NavigationProperty Name="Carts" Relationship="Self.FK_Cart_Product" FromRole="Product" ToRole="Cart" />
           <NavigationProperty Name="ProductType" Relationship="Self.FK_Product_ProductTypes" FromRole="Product" ToRole="ProductTypes" />
         </EntityType>
@@ -369,16 +378,6 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Products" Relationship="Self.FK_Product_ProductTypes" FromRole="ProductTypes" ToRole="Product" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="UserInformation">
           <Key>
@@ -419,6 +418,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Product_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Cart_Product">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
           <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
@@ -447,7 +458,7 @@
           <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="WatchDBv2ConnectionStrings" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="WatchDBv2Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
@@ -458,7 +469,6 @@
           <EntitySet Name="Images" EntityType="Self.Image" />
           <EntitySet Name="Products" EntityType="Self.Product" />
           <EntitySet Name="ProductTypes" EntityType="Self.ProductType" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="UserInformations" EntityType="Self.UserInformation" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -467,6 +477,10 @@
           <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Branch" Association="Self.FK_Product_Branch">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="Product" EntitySet="Products" />
           </AssociationSet>
           <AssociationSet Name="FK_Cart_Product" Association="Self.FK_Cart_Product">
             <End Role="Product" EntitySet="Products" />
@@ -486,7 +500,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="WatchDBv2ModelStoreContainer" CdmEntityContainer="WatchDBv2ConnectionStrings">
+        <EntityContainerMapping StorageEntityContainer="WatchDBv2ModelStoreContainer" CdmEntityContainer="WatchDBv2Entities">
           <EntitySetMapping Name="C__MigrationHistory">
             <EntityTypeMapping TypeName="WatchDBv2Model.C__MigrationHistory">
               <MappingFragment StoreEntitySet="__MigrationHistory">
@@ -584,6 +598,7 @@
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="isAvailable" ColumnName="isAvailable" />
                 <ScalarProperty Name="isVisible" ColumnName="isVisible" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -592,17 +607,6 @@
               <MappingFragment StoreEntitySet="ProductTypes">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="WatchDBv2Model.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

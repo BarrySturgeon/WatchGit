@@ -14,7 +14,7 @@ public class ProductTypeTypeModel
 
         try
         {
-            WatchDBv2ConnectionStrings dbo = new WatchDBv2ConnectionStrings();
+            WatchDBv2Entities dbo = new WatchDBv2Entities();
             dbo.ProductTypes.Add(productType);
             dbo.SaveChanges();
 
@@ -32,7 +32,7 @@ public class ProductTypeTypeModel
 
         try
         {
-            WatchDBv2ConnectionStrings dbo = new WatchDBv2ConnectionStrings();
+            WatchDBv2Entities dbo = new WatchDBv2Entities();
 
             //fetch from db
             ProductType p = dbo.ProductTypes.Find(id);
@@ -56,7 +56,7 @@ public class ProductTypeTypeModel
 
         try
         {
-            WatchDBv2ConnectionStrings dbo = new WatchDBv2ConnectionStrings();
+            WatchDBv2Entities dbo = new WatchDBv2Entities();
             ProductType productType = dbo.ProductTypes.Find(id);
 
             dbo.ProductTypes.Attach(productType);

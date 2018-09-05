@@ -37,4 +37,9 @@ public partial class Pages_Management_Management : System.Web.UI.Page
 
 
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+
+    }
 }

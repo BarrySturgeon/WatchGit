@@ -3,9 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <asp:Panel id="search_container" runat="server">
+    <asp:Panel runat="server">
      <div>
-        <asp:TextBox runat="server" placeholder="Search for products" ID="SearchBar" Width="640px" OnTextChanged="SearchBar_TextChanged" Height="35px" ></asp:TextBox>
+        <asp:TextBox runat="server" placeholder="Search for products" ID="SearchBar" Width="933px" Height="35px" ></asp:TextBox>
         <asp:Button runat="server" Text="Search" ID="SearchBtn" OnClick="SearchBtn_Click"  Height="35px"/>
      </div>
         </asp:Panel>

@@ -77,9 +77,18 @@ public partial class AspNetUserLogin
 
 public partial class Branch
 {
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+    public Branch()
+    {
+        this.Products = new HashSet<Product>();
+    }
+
     public int Id { get; set; }
     public string Name { get; set; }
     public string Location { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    public virtual ICollection<Product> Products { get; set; }
 }
 
 public partial class C__MigrationHistory
@@ -126,7 +135,9 @@ public partial class Product
     public Nullable<int> Quantity { get; set; }
     public Nullable<bool> isAvailable { get; set; }
     public Nullable<bool> isVisible { get; set; }
+    public Nullable<int> BranchId { get; set; }
 
+    public virtual Branch Branch { get; set; }
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
     public virtual ICollection<Cart> Carts { get; set; }
     public virtual ProductType ProductType { get; set; }
@@ -145,15 +156,6 @@ public partial class ProductType
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
     public virtual ICollection<Product> Products { get; set; }
-}
-
-public partial class sysdiagram
-{
-    public string name { get; set; }
-    public int principal_id { get; set; }
-    public int diagram_id { get; set; }
-    public Nullable<int> version { get; set; }
-    public byte[] definition { get; set; }
 }
 
 public partial class UserInformation

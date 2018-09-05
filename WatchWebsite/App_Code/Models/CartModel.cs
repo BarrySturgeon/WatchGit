@@ -13,7 +13,7 @@ public class CartModel
 
         try
         {
-            WatchDBv2ConnectionStrings dbo = new WatchDBv2ConnectionStrings();
+            WatchDBv2Entities dbo = new WatchDBv2Entities();
             dbo.Carts.Add(cart);
             dbo.SaveChanges();
 
@@ -31,7 +31,7 @@ public class CartModel
 
         try
         {
-            WatchDBv2ConnectionStrings dbo = new WatchDBv2ConnectionStrings();
+            WatchDBv2Entities dbo = new WatchDBv2Entities();
 
             //fetch from db
             Cart p = dbo.Carts.Find(id);
@@ -60,7 +60,7 @@ public class CartModel
 
         try
         {
-            WatchDBv2ConnectionStrings dbo = new WatchDBv2ConnectionStrings();
+            WatchDBv2Entities dbo = new WatchDBv2Entities();
             Cart cart = dbo.Carts.Find(id);
 
             dbo.Carts.Attach(cart);
@@ -81,7 +81,7 @@ public class CartModel
 
     public List<Cart> GetOrdersInCart(string userId)
     {
-        WatchDBv2ConnectionStrings dbo = new WatchDBv2ConnectionStrings();
+        WatchDBv2Entities dbo = new WatchDBv2Entities();
         List<Cart> orders = (from x in dbo.Carts where x.ClientID == userId && x.IsInCart orderby x.DatePurchased select x).ToList();
         return orders;
     }
@@ -90,7 +90,7 @@ public class CartModel
     {
         try
         {
-            WatchDBv2ConnectionStrings dbo = new WatchDBv2ConnectionStrings();
+            WatchDBv2Entities dbo = new WatchDBv2Entities();
             int amount = (from x in dbo.Carts
                           where x.ClientID == userId && x.IsInCart
                           select x.Amount).Sum();
@@ -106,7 +106,7 @@ public class CartModel
 
     public void UpdateQuantity(int id, int quantity)
     {
-        WatchDBv2ConnectionStrings dbo = new WatchDBv2ConnectionStrings();
+        WatchDBv2Entities dbo = new WatchDBv2Entities();
         Cart cart = dbo.Carts.Find(id);
         cart.Amount = quantity;
         dbo.SaveChanges();
@@ -115,7 +115,7 @@ public class CartModel
 
     public void MarkOrdersAsPaid(List<Cart> carts)
     {
-        WatchDBv2ConnectionStrings dbo = new WatchDBv2ConnectionStrings();
+        WatchDBv2Entities dbo = new WatchDBv2Entities();
         if (carts != null) {
             foreach (Cart cart in carts) {
 
