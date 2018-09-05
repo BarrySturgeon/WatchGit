@@ -13,9 +13,9 @@ public class CartModel
 
         try
         {
-            WatchDBv2Entities db = new WatchDBv2Entities();
-            db.Carts.Add(cart);
-            db.SaveChanges();
+            WatchDBv2Entities dbo = new WatchDBv2Entities();
+            dbo.Carts.Add(cart);
+            dbo.SaveChanges();
 
             return cart.DatePurchased + " was succesfully inserted";
         }
@@ -31,10 +31,10 @@ public class CartModel
 
         try
         {
-            WatchDBv2Entities db = new WatchDBv2Entities();
+            WatchDBv2Entities dbo = new WatchDBv2Entities();
 
             //fetch from db
-            Cart p = db.Carts.Find(id);
+            Cart p = dbo.Carts.Find(id);
 
             p.DatePurchased = cart.DatePurchased;
             p.ClientID = cart.ClientID;
@@ -44,7 +44,7 @@ public class CartModel
 
 
 
-            db.SaveChanges();
+            dbo.SaveChanges();
             return cart.DatePurchased + " was succesfully updated";
 
         }
@@ -60,12 +60,12 @@ public class CartModel
 
         try
         {
-            WatchDBv2Entities db = new WatchDBv2Entities();
-            Cart cart = db.Carts.Find(id);
+            WatchDBv2Entities dbo = new WatchDBv2Entities();
+            Cart cart = dbo.Carts.Find(id);
 
-            db.Carts.Attach(cart);
-            db.Carts.Remove(cart);
-            db.SaveChanges();
+            dbo.Carts.Attach(cart);
+            dbo.Carts.Remove(cart);
+            dbo.SaveChanges();
 
             return cart.DatePurchased + " was succesfully deleted";
 
@@ -81,8 +81,8 @@ public class CartModel
 
     public List<Cart> GetOrdersInCart(string userId)
     {
-        WatchDBv2Entities db = new WatchDBv2Entities();
-        List<Cart> orders = (from x in db.Carts where x.ClientID == userId && x.IsInCart orderby x.DatePurchased select x).ToList();
+        WatchDBv2Entities dbo = new WatchDBv2Entities();
+        List<Cart> orders = (from x in dbo.Carts where x.ClientID == userId && x.IsInCart orderby x.DatePurchased select x).ToList();
         return orders;
     }
 
@@ -90,8 +90,8 @@ public class CartModel
     {
         try
         {
-            WatchDBv2Entities db = new WatchDBv2Entities();
-            int amount = (from x in db.Carts
+            WatchDBv2Entities dbo = new WatchDBv2Entities();
+            int amount = (from x in dbo.Carts
                           where x.ClientID == userId && x.IsInCart
                           select x.Amount).Sum();
             return amount;
@@ -106,26 +106,26 @@ public class CartModel
 
     public void UpdateQuantity(int id, int quantity)
     {
-        WatchDBv2Entities db = new WatchDBv2Entities();
-        Cart cart = db.Carts.Find(id);
+        WatchDBv2Entities dbo = new WatchDBv2Entities();
+        Cart cart = dbo.Carts.Find(id);
         cart.Amount = quantity;
-        db.SaveChanges();
+        dbo.SaveChanges();
 
     }
 
     public void MarkOrdersAsPaid(List<Cart> carts)
     {
-        WatchDBv2Entities db = new WatchDBv2Entities();
+        WatchDBv2Entities dbo = new WatchDBv2Entities();
         if (carts != null) {
             foreach (Cart cart in carts) {
 
-                Cart oldCart = db.Carts.Find(cart.ID);
+                Cart oldCart = dbo.Carts.Find(cart.ID);
                 oldCart.DatePurchased = DateTime.Now;
                 oldCart.IsInCart = false;
 
             }
 
-            db.SaveChanges();
+            dbo.SaveChanges();
 
         }
 

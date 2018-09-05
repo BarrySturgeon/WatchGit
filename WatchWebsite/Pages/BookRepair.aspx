@@ -59,7 +59,7 @@
                 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                <asp:Button ID="btnSub" Font-size="Larger" runat="server" Text="Submit" OnClick="btnSub_Click" />
+                <asp:Button ID="btnSub" Font-size="Larger" runat="server" Text="Submit" OnClick="BtnSub_Click" />
 
 
                 <br />

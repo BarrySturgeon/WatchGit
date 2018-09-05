@@ -11,6 +11,7 @@ public partial class Pages_Management_Management : System.Web.UI.Page
     {
         var user = Context.User.Identity;
 
+        // #best cybersecurity in  2k18 :D /s
         if(user.IsAuthenticated)
         {
             if(!(user.Name == "admin" || user.Name == "adminRyan"))
@@ -34,6 +35,11 @@ public partial class Pages_Management_Management : System.Web.UI.Page
         int rowId = Convert.ToInt32(row.Cells[1].Text);
         Response.Redirect("~/Pages/Management/ManageProducts.aspx?id=" + rowId);
 
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
 
     }
 }

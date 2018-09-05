@@ -13,9 +13,9 @@ public class ProductsModel
 
         try
         {
-            WatchDBv2Entities db = new WatchDBv2Entities();
-            db.Products.Add(product);
-            db.SaveChanges();
+            WatchDBv2Entities dbo = new WatchDBv2Entities();
+            dbo.Products.Add(product);
+            dbo.SaveChanges();
 
             return product.Name + " was succesfully inserted";
         }
@@ -29,18 +29,21 @@ public class ProductsModel
 
         try
         {
-            WatchDBv2Entities db = new WatchDBv2Entities();
+            WatchDBv2Entities dbo = new WatchDBv2Entities();
 
             //fetch from db
-            Product p = db.Products.Find(id);
+            Product p = dbo.Products.Find(id);
 
             p.Name = product.Name;
             p.Price = product.Price;
             p.TypeId = product.TypeId;
             p.Description = product.Description;
             p.Image = product.Image;
+            p.isVisible = product.isVisible;
+            p.isAvailable = product.isAvailable;
+            p.Quantity = product.Quantity;
 
-            db.SaveChanges();
+            dbo.SaveChanges();
             return product.Name + " was succesfully updated";
 
         }
@@ -55,12 +58,12 @@ public class ProductsModel
 
         try
         {
-            WatchDBv2Entities db = new WatchDBv2Entities();
-            Product product = db.Products.Find(id);
+            WatchDBv2Entities dbo = new WatchDBv2Entities();
+            Product product = dbo.Products.Find(id);
 
-            db.Products.Attach(product);
-            db.Products.Remove(product);
-            db.SaveChanges();
+            dbo.Products.Attach(product);
+            dbo.Products.Remove(product);
+            dbo.SaveChanges();
 
             return product.Name + " was succesfully deleted";
 
@@ -78,8 +81,8 @@ public class ProductsModel
     public Product GetProduct(int id) {
 
         try {
-            using (WatchDBv2Entities db = new WatchDBv2Entities()) {
-                Product product = db.Products.Find(id);
+            using (WatchDBv2Entities dbo = new WatchDBv2Entities()) {
+                Product product = dbo.Products.Find(id);
                 return product;
             }
 
@@ -94,12 +97,13 @@ public class ProductsModel
     }
 
 
+
     public List<Product> GetAllProducts() {
         try
         {
-            using (WatchDBv2Entities db = new WatchDBv2Entities())
+            using (WatchDBv2Entities dbo = new WatchDBv2Entities())
             {
-                List<Product> products = (from x in db.Products select x).ToList();
+                List<Product> products = (from x in dbo.Products select x).ToList();
                 return products;
 
             }
@@ -118,9 +122,9 @@ public class ProductsModel
 
         try
         {
-            using (WatchDBv2Entities db = new WatchDBv2Entities())
+            using (WatchDBv2Entities dbo = new WatchDBv2Entities())
             {
-                List<Product> products = (from x in db.Products where x.TypeId == typeId select x).ToList();
+                List<Product> products = (from x in dbo.Products where x.TypeId == typeId select x).ToList();
                 return products;
 
             }
@@ -131,6 +135,67 @@ public class ProductsModel
 
         }
 
+
+
+    }
+
+
+    // overloading previous function
+    public List<Product> GetAllProducts(String argument)
+    {
+        try
+        {
+            /*
+             * TODO
+             * select products from db where criteria matches
+             * function needed for Search.aspx to work
+             * */
+             // works with only 1 keyword
+            using (WatchDBv2Entities dbo = new WatchDBv2Entities())
+            {
+                // a really simple and dumb search
+                // TODO improve
+                List<Product> products = (from x in dbo.Products
+                                          where (x.Name.Contains(argument))
+                                          select x).ToList();
+                return products;
+            }
+        }
+        catch (Exception)
+        {
+            return null;
+        }
+    }
+
+    // overloading previous function
+    public List<Product> GetAllProducts(String []arguments)
+    {
+        try
+        {
+            /*
+             * TODO
+             * select products from db where criteria matches
+             * function needed for Search.aspx to work
+             * */
+            // parse arguments
+            String argument = "";
+
+            using (WatchDBv2Entities dbo = new WatchDBv2Entities())
+            {
+                // a really simple and dumb search
+                // TODO improve
+                List<Product> products = (from x in dbo.Products
+                                          where (x.Name == argument)
+                                          select x).ToList();
+                return products;
+
+            }
+        }
+        catch (Exception)
+        {
+            return null;
+
+        }
 
 
     }

@@ -7,6 +7,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
+
+
+/*
+ * TODO fix this!
+ * It's not working since I messed with database
+ * 
+ * */
 public partial class Pages_Management_ManageProducts : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
