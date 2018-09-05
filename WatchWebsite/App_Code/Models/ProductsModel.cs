@@ -150,10 +150,42 @@ public class ProductsModel
              * select products from db where criteria matches
              * function needed for Search.aspx to work
              * */
+             // works with only 1 keyword
             using (WatchDBv2Entities dbo = new WatchDBv2Entities())
             {
+                // a really simple and dumb search
+                // TODO improve
                 List<Product> products = (from x in dbo.Products
-                                          where x.Name == argument
+                                          where (x.Name.Contains(argument))
+                                          select x).ToList();
+                return products;
+            }
+        }
+        catch (Exception)
+        {
+            return null;
+        }
+    }
+
+    // overloading previous function
+    public List<Product> GetAllProducts(String []arguments)
+    {
+        try
+        {
+            /*
+             * TODO
+             * select products from db where criteria matches
+             * function needed for Search.aspx to work
+             * */
+            // parse arguments
+            String argument = "";
+
+            using (WatchDBv2Entities dbo = new WatchDBv2Entities())
+            {
+                // a really simple and dumb search
+                // TODO improve
+                List<Product> products = (from x in dbo.Products
+                                          where (x.Name == argument)
                                           select x).ToList();
                 return products;
 
@@ -167,7 +199,6 @@ public class ProductsModel
 
 
     }
-
 
 
 }

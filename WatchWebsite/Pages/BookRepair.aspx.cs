@@ -12,7 +12,7 @@ public partial class Pages_BookRepair : System.Web.UI.Page
         lbResult.Text = string.Empty;
     }
 
-    protected void btnSub_Click(object sender, EventArgs e)
+    protected void BtnSub_Click(object sender, EventArgs e)
     {
 
         foreach (ListItem item in chBox.Items)
