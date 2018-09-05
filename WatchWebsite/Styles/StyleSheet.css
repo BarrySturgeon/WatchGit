@@ -2,24 +2,16 @@
     color: black;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 16px;
-<<<<<<< HEAD
-    background-image: url("../Images/backg9.jpg");
-    background-repeat: repeat;
-    background-color:grey;
     
 }
 
 #background {
    
-=======
     background-image: url("../Images/backg5.jpg");
     background-repeat: repeat;
     background-color: grey;
 }
 
-#background {
->>>>>>> NicosBranch
-}
 
 #wrapper {
     width: 1100px;
