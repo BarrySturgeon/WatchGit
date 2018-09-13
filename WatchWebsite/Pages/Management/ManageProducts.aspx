@@ -29,11 +29,33 @@
         <asp:DropDownList ID="ddlImage" runat="server">
         </asp:DropDownList>
     </p>
+
+    <p>
+        Branch:
+    </p>
+
+    <p>
+         <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="Name" DataValueField="Id">
+        </asp:DropDownList>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WatchDBv2ConnectionString %>" SelectCommand="SELECT * FROM [Branch] ORDER BY [Name]"></asp:SqlDataSource>
+    </p>
     <p>
         Description:</p>
     <p>
         <asp:TextBox ID="txtDescription" runat="server" Height="117px" TextMode="MultiLine" Width="278px"></asp:TextBox>
     </p>
+
+    <p>
+        isVisible:  <asp:CheckBox ID="IsVisibleCheckBox" runat="server" />
+    </p>
+
+
+     <p>
+        isAvailable: <asp:CheckBox ID="IsAvailCheckBox" runat="server" />
+    </p>
+
+
+
     <p>
         <asp:Button ID="btnSubmit" runat="server" OnClick="BtnSubmit_Click" Text="Submit" />
     </p>
