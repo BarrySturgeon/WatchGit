@@ -11,7 +11,6 @@ public partial class Pages_Management_Management : System.Web.UI.Page
     {
         var user = Context.User.Identity;
 
-        // #best cybersecurity in  2k18 :D /s
         if(user.IsAuthenticated)
         {
             if(!(user.Name == "admin" || user.Name == "adminRyan"))

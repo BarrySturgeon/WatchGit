@@ -98,8 +98,6 @@ public partial class Pages_Management_ManageProducts : System.Web.UI.Page
 
     }
 
-
-
     private Product CreateProduct() {
 
         Product product = new Product
@@ -108,7 +106,9 @@ public partial class Pages_Management_ManageProducts : System.Web.UI.Page
             Price = Convert.ToInt32(txtPrice.Text),
             TypeId = Convert.ToInt32(ddlType.SelectedValue),
             Description = txtDescription.Text,
-            Image = ddlImage.SelectedValue
+            Image = ddlImage.SelectedValue,
+            isVisible = IsVisibleCheckBox.Checked,
+            isAvailable = IsAvailCheckBox.Checked
         };
 
         return product;
