@@ -156,7 +156,7 @@ public partial class Pages_ShoppingCart : System.Web.UI.Page
         CartModel model = new CartModel();
         model.UpdateQuantity(cartId, quantity);
 
-        Response.Redirect("~/Pages/ShoppingCart.aspx");
 
+        Response.Redirect("~/Pages/ShoppingCart.aspx");
     }
 }
