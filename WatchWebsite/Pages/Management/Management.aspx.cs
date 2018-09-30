@@ -39,6 +39,15 @@ public partial class Pages_Management_Management : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-
+        if (FileUpload1.HasFile)
+        {
+            FileUpload1.SaveAs(Server.MapPath("~/Images/Products/" + FileUpload1.FileName));
+            lblUploadMessage.Text = "Image Uploaded";
+            lblUploadMessage.ForeColor = System.Drawing.Color.Green;
+        }
+        else {
+            lblUploadMessage.Text = "Please Select a file to upload";
+            lblUploadMessage.ForeColor = System.Drawing.Color.Red;
+        }
     }
 }
