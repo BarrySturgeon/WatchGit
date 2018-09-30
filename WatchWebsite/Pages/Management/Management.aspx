@@ -6,20 +6,48 @@
     <asp:LinkButton ID="LinkButton1" runat="server" CssClass="button" PostBackUrl="~/Pages/Management/ManageProducts.aspx">Add New Product</asp:LinkButton>
     <br />
     <br />
-    <asp:GridView ID="grdProducts" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="sdsProducts" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" Height="213px" Width="1084px">
+    <asp:GridView ID="grdProducts" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="sdsProducts" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" Height="100%" Width="100%">
         <AlternatingRowStyle BackColor="#CCCCCC" />
         <Columns>
             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
             <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" DataFormatString="{0:D}" />
-            <asp:BoundField DataField="TypeId" DataFormatString="{0:D}" HeaderText="TypeId" SortExpression="TypeId" NullDisplayText="&lt;empty&gt;" />
+            <asp:TemplateField HeaderText="TypeId" SortExpression="TypeId">
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox1" runat="server" onkeydown ="return (!(event.keyCode>=65) && event.keyCode!=32);" Text='<%# Bind("TypeId") %>'></asp:TextBox>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("TypeId", "{0:D}") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-            <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" DataFormatString="{0:C2}"/>
+            <asp:TemplateField HeaderText="Price" SortExpression="Price">
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox2" runat="server" onkeydown ="return (!(event.keyCode>=65) && event.keyCode!=32);" Text='<%# Bind("Price") %>'></asp:TextBox>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("Price", "{0:C2}") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
             <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" />
-            <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" DataFormatString="{0:D}"/>
+            <asp:TemplateField HeaderText="Quantity" SortExpression="Quantity">
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox3" runat="server" onkeydown ="return (!(event.keyCode>=65) && event.keyCode!=32);" Text='<%# Bind("Quantity") %>'></asp:TextBox>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("Quantity", "{0:D}") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:CheckBoxField DataField="isAvailable" HeaderText="isAvailable" SortExpression="isAvailable"/>
             <asp:CheckBoxField DataField="isVisible" HeaderText="isVisible" SortExpression="isVisible" />
-            <asp:BoundField DataField="BranchId" DataFormatString="{0:D}" HeaderText="BranchId" SortExpression="BranchId" />
+            <asp:TemplateField HeaderText="BranchId" SortExpression="BranchId">
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox4" runat="server" onkeydown ="return (!(event.keyCode>=65) && event.keyCode!=32);" Text='<%# Bind("BranchId") %>'></asp:TextBox>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="Label4" runat="server" Text='<%# Bind("BranchId", "{0:D}") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
         <FooterStyle BackColor="#CCCCCC" />
         <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
