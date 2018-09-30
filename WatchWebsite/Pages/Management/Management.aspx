@@ -92,7 +92,6 @@
     </asp:SqlDataSource>
     <br />
     <div id="UploadImagediv">
-        <!-- TODO upload images -->
         <asp:FileUpload ID="FileUpload1" runat="server" />
         <asp:Button ID="UploadButton" class="button" runat="server" Text="Upload Image" OnClick="Button1_Click" />
         <br />

@@ -21,7 +21,8 @@
         Price:
     </p>
     <p>
-        <asp:TextBox ID="txtPrice" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtPrice" runat="server" onkeydown ="return (!(event.keyCode>=65) && event.keyCode!=32);"></asp:TextBox>
+    
     </p>
     <p>
         Image:</p>
