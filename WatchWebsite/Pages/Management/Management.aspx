@@ -6,14 +6,15 @@
     <asp:LinkButton ID="LinkButton1" runat="server" CssClass="button" PostBackUrl="~/Pages/Management/ManageProducts.aspx">Add New Product</asp:LinkButton>
     <br />
     <br />
-    <asp:GridView ID="grdProducts" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="sdsProducts" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" Height="100%" Width="100%">
+
+    <asp:GridView ID="grdProducts" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="sdsProducts" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" style="width:100%;overflow:auto">
         <AlternatingRowStyle BackColor="#CCCCCC" />
         <Columns>
             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
             <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" DataFormatString="{0:D}" />
             <asp:TemplateField HeaderText="TypeId" SortExpression="TypeId">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" onkeydown ="return (!(event.keyCode>=65) && event.keyCode!=32);" Text='<%# Bind("TypeId") %>'></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" style="width:100%;overflow:auto" onkeydown ="return (!(event.keyCode>=65) && event.keyCode!=32);" Text='<%# Bind("TypeId") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label1" runat="server" Text='<%# Bind("TypeId", "{0:D}") %>'></asp:Label>
@@ -22,17 +23,24 @@
             <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
             <asp:TemplateField HeaderText="Price" SortExpression="Price">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox2" runat="server" onkeydown ="return (!(event.keyCode>=65) && event.keyCode!=32);" Text='<%# Bind("Price") %>'></asp:TextBox>
+                    <asp:TextBox ID="TextBox2" runat="server" style="width:100%;overflow:auto" onkeydown ="return (!(event.keyCode>=65) && event.keyCode!=32);" Text='<%# Bind("Price") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label2" runat="server" Text='<%# Bind("Price", "{0:C2}") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
-            <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" />
+            <asp:TemplateField HeaderText="Image" SortExpression="Image">
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox5" runat="server" style="width:100%;overflow:auto" Text='<%# Bind("Image") %>'></asp:TextBox>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="Label5" runat="server" Text='<%# Bind("Image") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:TemplateField HeaderText="Quantity" SortExpression="Quantity">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox3" runat="server" onkeydown ="return (!(event.keyCode>=65) && event.keyCode!=32);" Text='<%# Bind("Quantity") %>'></asp:TextBox>
+                    <asp:TextBox ID="TextBox3" runat="server" style="width:100%;overflow:auto" onkeydown ="return (!(event.keyCode>=65) && event.keyCode!=32);" Text='<%# Bind("Quantity") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label3" runat="server" Text='<%# Bind("Quantity", "{0:D}") %>'></asp:Label>
@@ -42,7 +50,7 @@
             <asp:CheckBoxField DataField="isVisible" HeaderText="isVisible" SortExpression="isVisible" />
             <asp:TemplateField HeaderText="BranchId" SortExpression="BranchId">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox4" runat="server" onkeydown ="return (!(event.keyCode>=65) && event.keyCode!=32);" Text='<%# Bind("BranchId") %>'></asp:TextBox>
+                    <asp:TextBox ID="TextBox4" runat="server" style="width:100%;overflow:auto" onkeydown ="return (!(event.keyCode>=65) && event.keyCode!=32);" Text='<%# Bind("BranchId") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label4" runat="server" Text='<%# Bind("BranchId", "{0:D}") %>'></asp:Label>
