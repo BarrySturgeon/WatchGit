@@ -17,64 +17,10 @@
 
     </asp:Panel>
 
-    
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdqZMAZ0aD1H0cEJ5Ts6EVbkNJoCPArn51wQFwHh9scoLoODg/viewform?embedded=true" width="640" height="1378" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
 
-    <table>
-        <tr>
-            <td>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-                <asp:label runat="server" text="Just click on the issue you're having and we'll develope an estimated repair fee to fix your watch" Font-Size="Large"></asp:label>
-
-                &nbsp;<br />
-&nbsp;<asp:label runat="server" text="(DISCLAIMER: These prices are not final until the watch has been seen and the issue found, this serves as an estimation and not the final price.)" Font-Size="Medium" ID="label1"></asp:label>
-
-                <br />
-
-                <br />
-
-                <br />
-&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="Label2" runat="server" Text="Please choose a price range in which your watch resides and then your issues:"></asp:Label>
-&nbsp;<asp:checkboxlist ID="chBox" runat="server" CellPadding="8" CellSpacing="5" >
-                    <asp:ListItem Text="Under R1000" Value=250></asp:ListItem>
-                    <asp:ListItem Text="Greater than R1000" Value=500></asp:ListItem>
-                    <asp:ListItem Text="Greater than R3000" Value=1000></asp:ListItem>
-                    <asp:ListItem Text="Cracked/damaged watch face" Value=500></asp:ListItem>
-                    <asp:ListItem Text="Water damage" Value=200></asp:ListItem>
-                    <asp:ListItem Text="Hands not moving/battery issues" Value=300></asp:ListItem>
-                    <asp:ListItem Text="Broken strap" Value=150></asp:ListItem>
-                    <asp:ListItem Text="Mechanical issues" Value=500></asp:ListItem>
-
-                </asp:checkboxlist>
-
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-                <br />
-
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-                <br />
-
-                <br />
-                <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-                <asp:Button ID="btnSub" Font-size="Larger" runat="server" Text="Submit" OnClick="BtnSub_Click" />
-
-
-                <br />
-                <br />
-
-
-                <asp:Label ID="lbResult" Font-size="Larger" runat="server" Text=""></asp:Label>
-
-                <br />
-                <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit to shop?" Visible="false" />
-                <br />
-
-                <br />
+   
+            
             </td>
         
         </tr>
