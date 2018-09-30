@@ -34,6 +34,7 @@ public partial class Pages_Order : System.Web.UI.Page
 
         // then, goto payment gateway
         // afterwards magic happens
+        Response.Redirect("~/Pages/Order.aspx");
     }
 
 

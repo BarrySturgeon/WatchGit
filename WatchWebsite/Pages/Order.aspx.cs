@@ -15,7 +15,7 @@ public partial class Pages_Order : System.Web.UI.Page
 
     }
 
-    protected void btnOrder_Click(object sender, EventArgs e)
+    protected void FunkButton_Click(object sender, EventArgs e)
     {
         try
         {
@@ -27,8 +27,8 @@ public partial class Pages_Order : System.Web.UI.Page
             // TODO 
             // fix the followin:
             //string orderId = new CreateOrder(null);
-            string name = "My Website, Order #" + orderId;
-            string description = "Order description";
+            string name = "Time Masters Swiss Time Specialists, Order #" + orderId;
+            string description = "Order description [desc]";
 
             string site = "";
             string merchant_id = "";
@@ -80,4 +80,5 @@ public partial class Pages_Order : System.Web.UI.Page
             // Don't be like Nico
         }
     }
+
 }
