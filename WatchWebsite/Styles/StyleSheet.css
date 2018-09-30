@@ -20,7 +20,8 @@
 }
 
 #banner{
-    
+   
+
 }
 
 #title {
@@ -80,6 +81,18 @@
     height: 250px;
     text-align: center;
 }
+
+#UploadImagediv {
+    margin:auto;
+    background-color:burlywood;
+    width:500px;
+    text-align: center;
+    border:groove;
+    border-radius:20px;
+    padding-top:30px;
+    
+}
+
 
 .productImage {
     width: 150px;
