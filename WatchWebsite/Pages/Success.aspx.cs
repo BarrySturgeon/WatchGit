@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
-using PayFast;
 
 public partial class Pages_Success : System.Web.UI.Page
 {
