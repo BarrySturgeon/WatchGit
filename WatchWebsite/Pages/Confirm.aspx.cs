@@ -33,11 +33,23 @@ public partial class Pages_Confirm : System.Web.UI.Page
          *	         \              \\|           |//   \\|           |//
          *	   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
          */
-         // kinda gay if you ask me...
-         // well... as long as we say "nohomo" it's gonna turn out fine
+        // kinda gay if you ask me...
+        // well... as long as we say "nohomo" it's gonna turn out fine
+
+        DoSecurityCheck();
     }
 
     // TODO 
     // security check
     // whatever it is
+
+    private void DoSecurityCheck()
+    {
+
+
+
+
+        // redirect to success page
+        Response.Redirect("~/Pages/Success.aspx");
+    }
 }

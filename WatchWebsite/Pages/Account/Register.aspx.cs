@@ -13,6 +13,7 @@ public partial class Pages_Account_Register : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
+
     }
 
     protected void Button1_Click(object sender, EventArgs e)
@@ -76,6 +77,20 @@ public partial class Pages_Account_Register : System.Web.UI.Page
         else
         {
             litStatus.Text = "Passwords do not match";
+        }
+    }
+
+    protected void txtConfirmPassword_TextChanged(object sender, EventArgs e)
+    {
+        if (txtPassword.Text.Length != txtConfirmPassword.Text.Length)
+        {
+            StatusLabel.Text = "<span style='color:red'>Passwords do not match</span>";
+
+        }
+        else if (txtPassword.Text.Length == txtConfirmPassword.Text.Length
+            && (!txtConfirmPassword.Text.Equals("") || !txtPassword.Text.Equals("")))
+        {
+            StatusLabel.Text = "";
         }
     }
 }

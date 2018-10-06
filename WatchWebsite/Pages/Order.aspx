@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-    <asp:Button ID="FunkButton" runat="server" Text="Funk this shit up!" OnClick="FunkButton_Click" />
+    <asp:Button ID="FunkButton" runat="server" CssClass="button" Text="Confirm checkout" OnClick="FunkButton_Click" />
     <!-- sample of what we should aim for :D 
     <img src="../Images/dev-sandbox/sample checkout.png" />
     <img src="../Images/dev-sandbox/sample checkout 2.png" /> -->
