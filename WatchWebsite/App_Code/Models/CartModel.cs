@@ -34,14 +34,14 @@ public class CartModel
             WatchDBv2Entities dbo = new WatchDBv2Entities();
 
             //fetch from db
-            Cart p = dbo.Carts.Find(id);
+            Cart c = dbo.Carts.Find(id);
 
-            p.DatePurchased = cart.DatePurchased;
-            p.ClientID = cart.ClientID;
-            p.Amount = cart.Amount;
-            p.IsInCart = cart.IsInCart;
-            p.ProductID = cart.ProductID;
-
+            c.DatePurchased = cart.DatePurchased;
+            c.ClientID = cart.ClientID;
+            c.Amount = cart.Amount;
+            c.IsInCart = cart.IsInCart;
+            c.ProductID = cart.ProductID;
+            c.OrderID = cart.OrderID;
 
 
             dbo.SaveChanges();
@@ -115,6 +115,8 @@ public class CartModel
 
     public void MarkOrdersAsPaid(List<Cart> carts)
     {
+
+        // payment...?
         WatchDBv2Entities dbo = new WatchDBv2Entities();
         if (carts != null) {
             foreach (Cart cart in carts) {
@@ -122,6 +124,9 @@ public class CartModel
                 Cart oldCart = dbo.Carts.Find(cart.ID);
                 oldCart.DatePurchased = DateTime.Now;
                 oldCart.IsInCart = false;
+
+                // TODO
+                // could use some improvement code with table "Order"
 
             }
 

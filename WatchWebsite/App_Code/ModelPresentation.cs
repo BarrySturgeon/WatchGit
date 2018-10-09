@@ -107,6 +107,7 @@ public partial class Cart
     public int Amount { get; set; }
     public Nullable<System.DateTime> DatePurchased { get; set; }
     public bool IsInCart { get; set; }
+    public Nullable<int> OrderID { get; set; }
 
     public virtual Product Product { get; set; }
 }
@@ -116,6 +117,31 @@ public partial class Image
     public int Id { get; set; }
     public string FilePath { get; set; }
     public string Description { get; set; }
+}
+
+public partial class Order
+{
+    public int OrderId { get; set; }
+    public string UserID { get; set; }
+    public Nullable<int> PaymentID { get; set; }
+    public Nullable<System.DateTime> OrderDate { get; set; }
+    public Nullable<System.DateTime> ShipDate { get; set; }
+    public Nullable<int> ShipperID { get; set; }
+    public byte[] Timestamp { get; set; }
+    public string TransactStatus { get; set; }
+    public string ErrorLoc { get; set; }
+    public string ErrorMsg { get; set; }
+    public Nullable<bool> IsFullfilled { get; set; }
+    public Nullable<bool> IsDeleted { get; set; }
+    public Nullable<bool> IsPaid { get; set; }
+    public Nullable<System.DateTime> PaymentDate { get; set; }
+}
+
+public partial class Payment
+{
+    public int PaymentID { get; set; }
+    public string PaymentMethod { get; set; }
+    public Nullable<bool> IsAllowed { get; set; }
 }
 
 public partial class Product
@@ -166,4 +192,6 @@ public partial class UserInformation
     public string LastName { get; set; }
     public string Address { get; set; }
     public int PostalCode { get; set; }
+    public string Email { get; set; }
+    public string Phone { get; set; }
 }

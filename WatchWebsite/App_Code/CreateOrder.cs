@@ -9,6 +9,6 @@ public class CreateOrder
         this.amount = amount;
 
         // create table "Order" in database
-        // yep... we're fucked
+        
     }
 }

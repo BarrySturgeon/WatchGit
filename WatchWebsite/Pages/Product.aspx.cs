@@ -38,7 +38,6 @@ public partial class Pages_Product : System.Web.UI.Page
             else
             {
                 // error unhandled
-                // bad coding! 
             }
         }
         catch(Exception e)

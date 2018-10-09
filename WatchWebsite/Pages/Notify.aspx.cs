@@ -9,7 +9,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 
-// YOINKED CODE
 public partial class Pages_Notify : System.Web.UI.Page
 {
     string orderId = "";

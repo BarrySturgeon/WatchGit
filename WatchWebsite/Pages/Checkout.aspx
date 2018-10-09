@@ -3,8 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <!-- you guessed it...
-        YOINK -->
 
 
     <h2>Enter shipping address</h2>
@@ -140,7 +138,7 @@
 <p class="checkbox"> 
 <input type="checkbox" name="cgv" id="cgv" value="1" /> 
 <label for="cgv">I agree to the terms of service and will adhere to them unconditionally.
-</label> <a href="http://redditsilver" class="iframe" rel="nofollow">(Read the Terms of Service)</a></p>
+</label> <a href="http://brokenlink" class="iframe" rel="nofollow">(Read the Terms of Service)</a></p>
 </div>
 </div>
 

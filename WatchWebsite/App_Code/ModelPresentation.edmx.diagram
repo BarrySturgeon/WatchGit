@@ -15,13 +15,15 @@
         <EntityTypeShape EntityType="WatchDBv2Model.Image" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WatchDBv2Model.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="WatchDBv2Model.ProductType" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="WatchDBv2Model.UserInformation" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WatchDBv2Model.UserInformation" Width="1.5" PointX="12.125" PointY="4.25" IsExpanded="true" />
         <AssociationConnector Association="WatchDBv2Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="WatchDBv2Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="WatchDBv2Model.FK_Product_Branch" ManuallyRouted="false" />
         <AssociationConnector Association="WatchDBv2Model.FK_Cart_Product" ManuallyRouted="false" />
         <AssociationConnector Association="WatchDBv2Model.FK_Product_ProductTypes" ManuallyRouted="false" />
         <AssociationConnector Association="WatchDBv2Model.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="WatchDBv2Model.Order" Width="1.5" PointX="9.375" PointY="3.75" />
+        <EntityTypeShape EntityType="WatchDBv2Model.Payment" Width="1.5" PointX="9.375" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

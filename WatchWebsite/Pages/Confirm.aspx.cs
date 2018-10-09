@@ -12,29 +12,6 @@ public partial class Pages_Confirm : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        // R.I.P
-        /* 
-         * 
-         *	        	 *   _.---,._,'
-         *	       /' _.--.<
-         *	         /'     `'
-         *	       /' _.---._____
-         *	       \.'   ___, .-'`
-         *	           /'    \\             .                   .
-         *	         /'       `-.          -|-                 -|-
-         *	        |                       |                   |
-         *	        |                   .-'~~~`-.           .-'~~~`-.
-         *	        |                 .'         `.       .'         `.
-         *	        |                 |  R  I  P  |       |  R  I  P  |
-         *	  	    |                 |           |       |           |
-         *	        |                 | 1995-2018 |       | 1994-2018 |
-         *			|				  |  Novikov  |       |  Sturgeon |
-         *			|				  |  Mykola	  |       |   Barry   |
-         *	         \              \\|           |//   \\|           |//
-         *	   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
-         */
-        // kinda gay if you ask me...
-        // well... as long as we say "nohomo" it's gonna turn out fine
 
         DoSecurityCheck();
     }

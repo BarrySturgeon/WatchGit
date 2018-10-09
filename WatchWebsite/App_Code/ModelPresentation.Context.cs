@@ -34,4 +34,6 @@ public partial class WatchDBv2Entities : DbContext
     public virtual DbSet<Product> Products { get; set; }
     public virtual DbSet<ProductType> ProductTypes { get; set; }
     public virtual DbSet<UserInformation> UserInformations { get; set; }
+    public virtual DbSet<Order> Orders { get; set; }
+    public virtual DbSet<Payment> Payments { get; set; }
 }

@@ -92,7 +92,6 @@ public partial class Pages_Index : System.Web.UI.Page
 
     protected void SearchBar_Focus(/*possibly not needed */object sender, EventArgs e)
     {
-        // shitcoding \o/ YAY!
         if (!hasBeenClicked)
         {
             SearchBar.Text = String.Empty;

@@ -7,7 +7,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 
-// YOINKED CODE
 public partial class Pages_Order : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -74,10 +73,6 @@ public partial class Pages_Order : System.Web.UI.Page
         catch (Exception ex)
         {
             // Handle your errors here (log them and tell the user that there was an error)
-            // NO! 
-            // Nico does not handle exceptions
-            // Nico is a fucking retard
-            // Don't be like Nico
         }
     }
 

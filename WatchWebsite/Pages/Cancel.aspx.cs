@@ -13,6 +13,6 @@ public partial class Pages_Cancel : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        // a.k.a FUCK GO BACK!
+        
     }
 }

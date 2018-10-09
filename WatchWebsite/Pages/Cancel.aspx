@@ -4,9 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-     <asp:Label ID="Label1" runat="server" Font-Size="X-Large" Text="het gekanselleer!"></asp:Label>
+     <asp:Label ID="Label1" runat="server" Font-Size="X-Large" Text="Cancelled"></asp:Label>
     <br />
-    <asp:Label ID="Label2" runat="server" Text="Your payment has been cancelled&#27;Mad Afrikaans skillz by Nico"></asp:Label>
+    <asp:Label ID="Label2" runat="server" Text="Your payment has been cancelled"></asp:Label>
 </asp:Content>
 
 
