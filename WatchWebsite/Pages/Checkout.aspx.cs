@@ -34,7 +34,6 @@ public partial class Pages_Order : System.Web.UI.Page
 
         // then, goto payment gateway
         // afterwards magic happens
-        Response.Redirect("~/Pages/Order.aspx");
     }
 
 
@@ -66,4 +65,9 @@ public partial class Pages_Order : System.Web.UI.Page
      *   This page is specified by the notify_url field in the original form post to PayFast.
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
      **/
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Pages/Order.aspx");
+    }
 }

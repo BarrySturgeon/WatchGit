@@ -79,9 +79,9 @@
                     <td class="delivery_option_radio"> 
                 <input id="delivery_option_31730_0" class="delivery_option_radio" type="radio" name="delivery_option[31730]" data-key="4," data-id_address="31730" value="4," checked="checked" />
                 </td>
-                <td class="delivery_option_logo"> <img src="/img/s/4.jpg" alt="Rebel Tech" />
+                <td class="delivery_option_logo"> <img src="/img/s/4.jpg" alt="Time Masters STS" />
                 </td>
-                <td class="delivery_option_information" style="width: 250px; float: left;"> <strong>TimeMastersSTS</strong> 
+                <td class="delivery_option_information" style="width: 250px; float: left;"> <strong>TimeMasterSTS</strong> 
                 <br /> Pick up in-store 
                 <br /> 
 
@@ -143,7 +143,7 @@
 </div>
 
 <p class="cart_navigation submit"> 
-<asp:Button ID="Button1" runat="server" Text="<- Back" /> &nbsp;&nbsp; <asp:Button ID="Button2" runat="server" Text="Next ->" /></p>
+<asp:Button ID="Button1" runat="server" Text="<- Back" /> &nbsp;&nbsp; <asp:Button ID="Button2" runat="server" Text="Next ->" OnClick="Button2_Click"/></p>
 
 </div>
 
