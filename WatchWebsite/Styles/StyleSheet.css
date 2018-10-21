@@ -2,9 +2,9 @@
     color: black;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 16px;
-    background-image: url("../Images/woodbg.jpg");
+    background-image: url("../Images/backg5.jpg");
     background-repeat: repeat;
-    background-color:grey;
+    background-color: black;
 }
 
 
@@ -25,9 +25,10 @@
 }
 
 #title {
-    text-align:center;   
-    color:burlywood;
-
+    text-align: center;
+    color: burlywood;
+  
+  
 }
 
 #navigation {
@@ -72,7 +73,7 @@
 #content {
     padding: 20px;
     min-height: 400px;
-    background-color: #eac89b; /*#CCC*/
+    background-color:antiquewhite; /*#eac89b*/
 }
 
 #ContentPlaceHolder1_pnlProducts div {
@@ -92,6 +93,60 @@
     padding-top:30px;
     
 }
+
+#aboutPageDiv {
+    text-align: center;
+    width: auto;
+    height: auto;
+    border: groove;
+    border-radius: 20px;
+    background-color:snow;
+}
+
+#googleLocationDiv {
+    margin:auto;
+    width:600px;
+    height:500px;
+    background-color:snow;
+   
+}
+
+#facebookDiv {
+    margin:auto;
+    width:auto;
+    height:auto;
+  
+}
+
+#loginDiv {
+    margin: auto;
+    background-color:cornsilk;
+    width: 500px;
+    text-align: center;
+    border: groove;
+    border-radius: 20px;
+    padding-top: 30px;
+}
+#regDiv {
+    margin: auto;
+    background-color: cornsilk;
+    width: 600px;
+    text-align: center;
+    border: groove;
+    border-radius: 20px;
+    padding-top: 30px;
+}
+
+#confirmDiv {
+    text-align: center;
+    width: auto;
+    height: auto;
+    border: groove;
+    border-radius: 20px;
+    background-color: snow;
+}
+
+
 
 
 .productImage {
@@ -118,6 +173,9 @@
     width: 400px;
     height: 400px;
     margin-right: 20px;
+    border-radius: 50px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
 }
 
 .detailsDescription {

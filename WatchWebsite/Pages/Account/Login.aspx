@@ -3,6 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+    <div id="loginDiv">
      <p>
         <asp:Literal ID="litStatus" runat="server"></asp:Literal>
     </p>
@@ -17,5 +19,6 @@
     <p>
         <asp:Button ID="Button2" runat="server" CssClass="button" Text="Login" OnClick="Button2_Click" />
     </p>
+        </div>
 </asp:Content>
 

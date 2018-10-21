@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Net.Mail;
 
 public partial class Pages_Account_Register : System.Web.UI.Page
 {
@@ -28,10 +29,39 @@ public partial class Pages_Account_Register : System.Web.UI.Page
 
         UserManager<IdentityUser> manager = new UserManager<IdentityUser>(userStore);
 
+        SmtpClient client = new SmtpClient();
+        client.DeliveryMethod = SmtpDeliveryMethod.Network;
+        client.EnableSsl = true;
+        client.Host = "smtp.gmail.com";
+        client.Port = 587;
+
+        // setup Smtp authentication
+        System.Net.NetworkCredential credentials =
+            new System.Net.NetworkCredential("webmastertimemastersts@gmail.com", "RyanBlue21");
+        client.UseDefaultCredentials = false;
+        client.Credentials = credentials;
+
+
+        MailMessage msg = new MailMessage();
+        msg.From = new MailAddress("webmastertimemastersts@gmail.com");
+        msg.To.Add(new MailAddress(txtEmail.Text));
+
+        msg.Subject = "Thanks for registering, " + txtFirstName.Text;
+        msg.IsBodyHtml = true;
+        msg.Body = string.Format("<html><head></head><body><h1>Thank you for registering with Timemasters:Swiss Timepiece Specialists</h1><p>If you have any questions of concerns feel free to email this address.</p><p>If you did not sign up, please notify this email and we will rectify the mistake. </p><p>Thanks! Regards from Timemaster:STS</p></body>");
+
+        try
+        {
+            client.Send(msg);
+        }
+        catch (Exception ex)
+        {
+        }
 
         // Creating the user
         IdentityUser user = new IdentityUser();
         user.UserName = txtUsrName.Text;
+
 
         if(txtPassword.Text == txtConfirmPassword.Text)
         {
@@ -45,7 +75,7 @@ public partial class Pages_Account_Register : System.Web.UI.Page
 
                         Address = txtAddress.Text,
                         FirstName = txtFirstName.Text,
-                        LastName = txtLastName.Text,
+                        LastName = textLastName.Text,
                         GUID = user.Id
                     };
 
