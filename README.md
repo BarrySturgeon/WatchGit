@@ -1,12 +1,7 @@
-# WatchGit
-Watch Website
+# WatchGit - Watch Website
 
--You don't need to see our identification. -This is not the project you are looking for. -We can go about our business. -Move along.
-
-Just a bunch of broke students collaborating. 
-
-
-The purpose of this project is to get experience in a real environment before graduating from Monash University. This project is part of FIT3047 & FIT3048 "Industry experience studio project Semester 1 & 2" units. It has been done by team SA005 "Swiss Titans" and we are:
+This is an industry project done over a year guided by the needs a client. He handled selling and repairing watches, and wanted to expand his business online.
+It has been done by team SA005 "Swiss Titans" and we are:
 Barry Sturgeon, 
 Mykola Novikov,
 Jeff Chitando,
